@@ -16,7 +16,7 @@ dash.register_page(__name__,
 # page 1 data
 data='Bolivia'
 
-df = pd.read_csv("datasets/cuidado_ninos.csv")
+df = pd.read_csv("datasets/familia_spanish/cuidado_ninos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

@@ -14,7 +14,7 @@ dash.register_page(__name__,
 
 
 # page 1 data
-df = pd.read_csv("datasets/hogar_monoparental.csv")
+df = pd.read_csv("datasets/familia_spanish/hogar_monoparental.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
