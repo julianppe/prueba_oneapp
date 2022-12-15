@@ -80,7 +80,7 @@ navbar_familia_spanish = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/familia_spanish/",
+                href="/familia_spanish/diferencia-edad",
                 style={"textDecoration": "none"},
             ),
         ],

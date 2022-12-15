@@ -62,7 +62,7 @@ navbar_empleo_spanish = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/empleo_spanish/",
+                href="/empleo_spanish/participacion-laboral",
                 style={"textDecoration": "none"},
             ),
         ],

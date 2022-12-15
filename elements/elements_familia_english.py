@@ -1,0 +1,91 @@
+from dash import html, dcc, Input, Output, State, html
+import dash_bootstrap_components as dbc
+from dash import page_registry, page_container
+
+dropdown_familia_english = dbc.Row([
+    dbc.Col(
+        dbc.DropdownMenu(
+        children=[
+            dbc.DropdownMenuItem("Gaps between spouses", header=True),
+            dbc.DropdownMenuItem("Age difference between spouses", href="/familia_english/age-difference"),
+            dbc.DropdownMenuItem("Education difference between spouses", href="/familia_english/educational-difference"),
+            dbc.DropdownMenuItem("Difference in hours worked between spouses", href="/familia_english/hours-difference"),
+            dbc.DropdownMenuItem("Percentage of the spousal labor income contributed by each member", href="/familia_english/labor-income-percentage"),
+            dbc.DropdownMenuItem("Percentage of individuals with equal or greater education than spouse who are inactive", href="/familia_english/more-education-percentage"),
+            dbc.DropdownMenuItem(divider=True),
+            dbc.DropdownMenuItem("Autonomía", header=True),
+            dbc.DropdownMenuItem("Percentage of adults with zero income", href="/familia_english/autonomy"),
+            dbc.DropdownMenuItem(divider=True),
+            dbc.DropdownMenuItem("Household structure and headship", header=True),
+            dbc.DropdownMenuItem("Self-reported female household headship", href="/familia_english/female-household-headship"),
+            dbc.DropdownMenuItem("Economic female household headship", href="/familia_english/female-household-headship-econ"),
+            dbc.DropdownMenuItem("Percentage of single-parent households", href="/familia_english/single-parent-percentage"),
+            dbc.DropdownMenuItem(divider=True),
+            dbc.DropdownMenuItem("Time use", header=True),
+            dbc.DropdownMenuItem("Participation in household chores", href="/familia_english/household-chores"),
+            dbc.DropdownMenuItem("Weekly hours allocated to household chores", href="/familia_english/hours-household-chores"),
+            dbc.DropdownMenuItem("Participation in care activities", href="/familia_english/care-activities"),
+            dbc.DropdownMenuItem("Weekly hours allocated to care activities", href="/familia_english/hours-care-activities"),
+            dbc.DropdownMenuItem("Participation in childcare activities", href="/familia_english/childcare-activities"),
+            dbc.DropdownMenuItem("Weekly hours allocated to childcare activities", href="/familia_english/hours-childcare-activities"),
+            dbc.DropdownMenuItem("Participation in activities of support to other households", href="/familia_english/activities-support"),
+            dbc.DropdownMenuItem("Weekly hours allocated to provide support to other households", href="/familia_english/hours-activities-support"),
+            dbc.DropdownMenuItem("Participation in leisure activities", href="/familia_english/activities-leisure"),
+            dbc.DropdownMenuItem("Weekly hours allocated to leisure activities", href="/familia_english/hours-activities-leisure"),
+            dbc.DropdownMenuItem(divider=True),
+            dbc.DropdownMenuItem("Fertility", header=True),
+            dbc.DropdownMenuItem("Fertility rate", href="/familia_english/fertility-rate"),
+            dbc.DropdownMenuItem("Desired fertility rate", href="/familia_english/desired-fertility-rate"),
+            dbc.DropdownMenuItem("Gap between actual and desired fertility", href="/familia_english/gap-fertility-desired"),
+            dbc.DropdownMenuItem("Gap in desired fertility between spouses", href="/familia_english/gap-fertility-desired-spouse"),
+            dbc.DropdownMenuItem("Percentage of women using contraception (any method)", href="/familia_english/method-contraception"),
+            dbc.DropdownMenuItem("Percentage of women using modern contraceptive methods", href="/familia_english/modern-contraception-method"),
+            dbc.DropdownMenuItem("Percentage of women without access to contraception", href="/familia_english/without-contraception-access"),
+            dbc.DropdownMenuItem("Early pregnancy", href="/familia_english/early-pregnancy"),
+            dbc.DropdownMenuItem("Early marriage", href="/familia_english/early-marriage"),
+        ],
+        size="lg",
+        nav=True,
+        in_navbar=True,
+        label="Indicators",
+        className="ms-0",
+        toggle_style={"color": "#460074"},
+        align_end=False,
+        style={'width':'100%'}
+
+        )
+    )
+],
+className="g-0 ms-auto flex-nowrap mt-5 mt-md-0",
+align="center",
+)
+
+
+navbar_familia_english = dbc.Navbar(
+    dbc.Container(
+        [
+            html.A(
+                # Use row and col to control vertical alignment of logo / brand
+                dbc.Row(
+                    [
+                        dbc.NavbarToggler(id="navbar-toggler_familia_english", n_clicks=0),
+                        dbc.Collapse(
+                            dropdown_familia_english, 
+                            className="ml-auto",
+                            id="navbar-collapse_familia_english",
+                            is_open=False,
+                            navbar=True,
+                        ),
+                    ],
+                    align="center",
+                    className="g-0",
+                ),
+                href="/familia_english/age-difference/",
+                style={"textDecoration": "none"},
+            ),
+        ],
+    fluid=True),
+    #outline=True, 
+    color="light",
+    dark=True,
+)
