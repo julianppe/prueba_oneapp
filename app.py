@@ -83,4 +83,10 @@ app_empleo_english.layout = html.Div(
     ]
 )
 
-server.run()
+
+#server.run()
+
+if __name__ == "__main__":
+    app_empleo_spanish.run_server()
+    app_empleo_english.run_server()
+
