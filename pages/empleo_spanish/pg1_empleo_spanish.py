@@ -17,7 +17,7 @@ dash.register_page(__name__,
 
 # page 1 data
 #df = pd.read_csv("https://raw.githubusercontent.com/julianppe/data/main/participacion.csv")
-df = pd.read_csv("E:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_spanish/participacion.csv")
+df = pd.read_csv("datasets/empleo_spanish/participacion.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
