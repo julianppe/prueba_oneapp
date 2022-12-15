@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/diferencia-educativa',  # represents the url text
+                   path='/educational-difference',  # represents the url text
                    name='Diferencia educativa entre conyuges',  # name of page, commonly used as name of link
                    title='Diferencia educativa entre conyuges'  # epresents the title of browser's tab
 )

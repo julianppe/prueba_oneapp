@@ -8,7 +8,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/porcentaje-mas-educacion',  # represents the url text
+                   path='/more-education-percentage',  # represents the url text
                    name='Porcentaje de personas más o igualmente educadas que su pareja que se encuentran inactivas',  # name of page, commonly used as name of link
                    title='Porcentaje de personas más o igualmente educadas que su pareja que se encuentran inactivas'  # epresents the title of browser's tab
 )

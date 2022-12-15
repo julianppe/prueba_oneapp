@@ -8,7 +8,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/jefatura-hogar-auto',  # represents the url text
+                   path='/female-household-headship',  # represents the url text
                    name='Jefatura de hogar femenina auto-reportada',  # name of page, commonly used as name of link
                    title='Jefatura de hogar femenina auto-reportada'  # epresents the title of browser's tab
 )
