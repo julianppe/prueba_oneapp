@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/horas-tareas-domesticas',  # represents the url text
+                   path='/horas-tareas-domesticas-familia',  # represents the url text
                    name='Horas semanales en tareas domésticas',  # name of page, commonly used as name of link
                    title='Horas semanales en tareas domésticas'  # epresents the title of browser's tab
 )

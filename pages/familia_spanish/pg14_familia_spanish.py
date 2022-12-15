@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/actividades-cuidado-ninos',  # represents the url text
+                   path='/actividades-cuidado-ninos-familia',  # represents the url text
                    name='Participación en actividades de cuidado de niños',  # name of page, commonly used as name of link
                    title='Participación en actividades de cuidado de niños'  # epresents the title of browser's tab
 )
