@@ -7,14 +7,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/labor-force-participation',  # represents the url text
-                   name='Labor force participation rate',  # name of page, commonly used as name of link
-                   title='Labor force participation rate'  # epresents the title of browser's tab
+                   path='/high-skilled-adults',  # represents the url text
+                   name='Percentage of high-skilled adults',  # name of page, commonly used as name of link
+                   title='Percentage of high-skilled adults'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_english/participacion.csv")
+df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_english/calificacion_alta.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,20 +38,20 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page1_empleo_english-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page15_empleo_english-pais_elect')
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page1_empleo_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page15_empleo_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page1_empleo_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page15_empleo_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page1_empleo_english-the_year',
+        dcc.RangeSlider(id='page15_empleo_english-the_year',
                 min=2000,
                 max=2021,
                 value=[2000,2021],
@@ -64,10 +64,10 @@ layout = html.Div([
 
 
 @callback(
-    Output('page1_empleo_english-line', 'figure'),
-    Input('page1_empleo_english-pais_elect', 'value'),
-    Input('page1_empleo_english-comparacion_por_elect', 'value'),
-    [Input('page1_empleo_english-the_year','value')]
+    Output('page15_empleo_english-line', 'figure'),
+    Input('page15_empleo_english-pais_elect', 'value'),
+    Input('page15_empleo_english-comparacion_por_elect', 'value'),
+    [Input('page15_empleo_english-the_year','value')]
 )
 
 

@@ -7,14 +7,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/labor-force-participation',  # represents the url text
-                   name='Labor force participation rate',  # name of page, commonly used as name of link
-                   title='Labor force participation rate'  # epresents the title of browser's tab
+                   path='/managers',  # represents the url text
+                   name='Porcentaje de mujeres en puestos jerarquicos',  # name of page, commonly used as name of link
+                   title='Porcentaje de mujeres en puestos jerarquicos'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_english/participacion.csv")
+df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_spanish/managers.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,20 +38,20 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page1_empleo_english-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page10_empleo_spanish-pais_elect')
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page1_empleo_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page10_empleo_spanish-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page1_empleo_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page10_empleo_spanish-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page1_empleo_english-the_year',
+        dcc.RangeSlider(id='page10_empleo_spanish-the_year',
                 min=2000,
                 max=2021,
                 value=[2000,2021],
@@ -62,12 +62,22 @@ layout = html.Div([
 ])
 
 
+@callback(
+    Output('page10_empleo_spanish-pais_elect', "value"),
+    Output("store_empleo_spanish", "data"),
+    Input('page10_empleo_spanish-pais_elect', "value"),
+    State("store_empleo_spanish", "data"),
+)
+def sync_dropdowns(dd_pais, store_pais):
+    if dd_pais is None:
+        return store_pais, no_update
+    return dd_pais, dd_pais
 
 @callback(
-    Output('page1_empleo_english-line', 'figure'),
-    Input('page1_empleo_english-pais_elect', 'value'),
-    Input('page1_empleo_english-comparacion_por_elect', 'value'),
-    [Input('page1_empleo_english-the_year','value')]
+    Output('page10_empleo_spanish-line', 'figure'),
+    Input('page10_empleo_spanish-pais_elect', 'value'),
+    Input('page10_empleo_spanish-comparacion_por_elect', 'value'),
+    [Input('page10_empleo_spanish-the_year','value')]
 )
 
 
@@ -82,7 +92,7 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     indicador = dff['indicador'].iat[0]
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
-    if comparacion_por_v == 'Women - men gap':
+    if comparacion_por_v == 'Brecha mujeres - hombres':
         fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
         labels=dict(ano="Año", valor="", pais2="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))

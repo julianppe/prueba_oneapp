@@ -27,8 +27,6 @@ app_empleo_spanish = DashProxy(
     pages_folder="pages/empleo_spanish",
     server=server,
     use_pages=True,
-    #prevent_initial_callbacks=True,
-    #suppress_callback_exceptions=True,
     external_stylesheets=external_stylesheets,
     url_base_pathname='/empleo_spanish/'
 )
@@ -58,15 +56,12 @@ app_empleo_english = DashProxy(
     pages_folder="pages/empleo_english",
     server=server,
     use_pages=True,
-    #prevent_initial_callbacks=True,
-    #suppress_callback_exceptions=True,
     external_stylesheets=external_stylesheets,
     url_base_pathname='/empleo_english/'
 )
 
 app_empleo_english.layout = html.Div(
     [
-        #dcc.Store(id="store_empleo_english", storage_type='local', data='Argentina'),
         dbc.Container([
     dbc.Row(
         [
@@ -83,8 +78,6 @@ app_empleo_english.layout = html.Div(
     ]
 )
 
-
-#server.run()
 
 if __name__ == "__main__":
     app_empleo_spanish.run_server()

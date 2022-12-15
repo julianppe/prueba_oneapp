@@ -14,7 +14,7 @@ dash.register_page(__name__,
 
 
 # page 1 data
-df = pd.read_csv("datasets/empleo_english/empleo.csv")
+df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/datasets/empleo_english/empleo.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,7 +38,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Argentina", id='page2_empleo_english-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page2_empleo_english-pais_elect')
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page2_empleo_english-comparacion_por_elect')
@@ -62,17 +62,7 @@ layout = html.Div([
 ])
 
 
-#@callback(
-#    Output('page2_empleo_english-pais_elect', "value"),
-#    Output("store_empleo_english", "data"),
-#    Input('page2_empleo_english-pais_elect', "value"),
-#    State("store_empleo_english", "data"),
-#)
-#
-#def sync_dropdowns_english(dd_pais_empleo_english, store_empleo_english):
-#    if dd_pais_empleo_english is None:
-#        return store_empleo_english, no_update
-#    return dd_pais_empleo_english, dd_pais_empleo_english
+
 
 @callback(
     Output('page2_empleo_english-line', 'figure'),
@@ -93,7 +83,7 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     indicador = dff['indicador'].iat[0]
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
-    if comparacion_por_v == 'Brecha mujeres - hombres':
+    if comparacion_por_v == 'Women - men gap':
         fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
         labels=dict(ano="Año", valor="", pais2="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
