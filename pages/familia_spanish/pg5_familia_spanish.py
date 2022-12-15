@@ -38,7 +38,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page5_familia_spanish-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Argentina", id='page5_familia_spanish-pais_elect')
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page5_familia_spanish-comparacion_por_elect')
@@ -62,16 +62,7 @@ layout = html.Div([
 ])
 
 
-@callback(
-    Output('page5_familia_spanish-pais_elect', "value"),
-    Output("store", "data"),
-    Input('page5_familia_spanish-pais_elect', "value"),
-    State("store", "data"),
-)
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
+
 
 @callback(
     Output('page5_familia_spanish-line', 'figure'),

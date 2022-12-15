@@ -68,10 +68,7 @@ layout = html.Div([
     Input('page8_empleo_spanish-pais_elect', "value"),
     State("store_empleo_spanish", "data"),
 )
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
+
 
 @callback(
     Output('page8_empleo_spanish-line', 'figure'),

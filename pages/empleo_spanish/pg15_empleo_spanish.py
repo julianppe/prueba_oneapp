@@ -14,7 +14,7 @@ dash.register_page(__name__,
 
 
 # page 1 data
-df = pd.read_csv("D:\Dropbox\multipage\projectGENLAC\dash_final_oneapp\datasets\empleo_spanish/calificacion_alta.csv")
+df = pd.read_csv("datasets\empleo_spanish/calificacion_alta.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -68,10 +68,7 @@ layout = html.Div([
     Input('page15_empleo_spanish-pais_elect', "value"),
     State("store_empleo_spanish", "data"),
 )
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
+
 
 @callback(
     Output('page15_empleo_spanish-line', 'figure'),
