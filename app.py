@@ -7,6 +7,7 @@ from elements.elements_empleo_spanish import dropdown_empleo_spanish, navbar_emp
 from elements.elements_empleo_english import dropdown_empleo_english, navbar_empleo_english
 from elements.elements_familia_spanish import dropdown_familia_spanish, navbar_familia_spanish
 from elements.elements_familia_english import dropdown_familia_english, navbar_familia_english
+from elements.elements_ninez_spanish import dropdown_ninez_spanish, navbar_ninez_spanish
 
 from flask import Flask
 
@@ -139,9 +140,39 @@ app_familia_english.layout = html.Div(
     ]
 )
 
+app_ninez_spanish = DashProxy(
+    __name__,
+    transforms=[MultiplexerTransform()],
+    pages_folder="pages/ninez_spanish",
+    server=server,
+    use_pages=True,
+    external_stylesheets=external_stylesheets,
+    url_base_pathname='/ninez_spanish/'
+)
+
+app_ninez_spanish.layout = html.Div(
+    [
+        dbc.Container([
+    dbc.Row(
+        [
+            navbar_ninez_spanish # Navbar
+        ]
+    ),
+    html.Br(),        
+    dbc.Row(
+        [
+            dash.page_container # Contenido de cada pagina
+        ]
+    )
+], fluid=True)
+    ]
+)
+
+
 if __name__ == "__main__":
     app_empleo_spanish.run_server()
     app_empleo_english.run_server()
     app_familia_spanish.run_server()
     app_familia_english.run_server()
+    app_ninez_spanish.run_server()
 
