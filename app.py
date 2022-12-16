@@ -10,6 +10,7 @@ from elements.elements_familia_english import dropdown_familia_english, navbar_f
 from elements.elements_ninez_spanish import dropdown_ninez_spanish, navbar_ninez_spanish
 from elements.elements_ninez_english import dropdown_ninez_english, navbar_ninez_english
 from elements.elements_gender_roles_spanish import dropdown_gender_roles_spanish, navbar_gender_roles_spanish
+from elements.elements_gender_roles_english import dropdown_gender_roles_english, navbar_gender_roles_english
 
 from flask import Flask
 
@@ -226,6 +227,34 @@ app_gender_roles_spanish.layout = html.Div(
     ]
 )
 
+app_gender_roles_english = DashProxy(
+    __name__,
+    transforms=[MultiplexerTransform()],
+    pages_folder="pages/gender_roles_english",
+    server=server,
+    use_pages=True,
+    external_stylesheets=external_stylesheets,
+    url_base_pathname='/gender_roles_english/'
+)
+
+app_gender_roles_english.layout = html.Div(
+    [
+        dbc.Container([
+    dbc.Row(
+        [
+            navbar_gender_roles_english # Navbar
+        ]
+    ),
+    html.Br(),        
+    dbc.Row(
+        [
+            dash.page_container # Contenido de cada pagina
+        ]
+    )
+], fluid=True)
+    ]
+)
+
 if __name__ == "__main__":
     app_empleo_spanish.run_server()
     app_empleo_english.run_server()
@@ -234,4 +263,5 @@ if __name__ == "__main__":
     app_ninez_spanish.run_server()
     app_ninez_english.run_server()
     app_gender_roles_spanish.run_server()
+    app_gender_roles_english.run_server()
 
