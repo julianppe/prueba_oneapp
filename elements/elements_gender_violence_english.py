@@ -52,7 +52,7 @@ navbar_gender_violence_english = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/gender_violence_english/",
+                href="/gender_violence_english/violence-psychological-domestic",
                 style={"textDecoration": "none"},
             ),
         ],

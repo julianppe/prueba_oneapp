@@ -73,7 +73,7 @@ navbar_ninez_spanish = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/ninez_spanish/",
+                href="/ninez_spanish/tasa-escolarizacion-pre-primaria-5",
                 style={"textDecoration": "none"},
             ),
         ],

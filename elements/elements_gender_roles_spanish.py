@@ -67,7 +67,7 @@ navbar_gender_roles_spanish = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/gender_roles_spanish/",
+                href="/gender_roles_spanish/hombres-mejores-lideres",
                 style={"textDecoration": "none"},
             ),
         ],

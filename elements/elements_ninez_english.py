@@ -73,7 +73,7 @@ navbar_ninez_english = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/ninez_english/",
+                href="/ninez_english/enrollment-rate-pre-primary-5",
                 style={"textDecoration": "none"},
             ),
         ],

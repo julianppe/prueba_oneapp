@@ -67,7 +67,7 @@ navbar_gender_roles_english = dbc.Navbar(
                     align="center",
                     className="g-0",
                 ),
-                href="/gender_roles_english/",
+                href="/gender_roles_english/men-better-political",
                 style={"textDecoration": "none"},
             ),
         ],
