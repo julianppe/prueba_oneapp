@@ -9,7 +9,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/care-activities',  # represents the url text
+                   path='/care-activities-family',  # represents the url text
                    name='Participation in care activities',  # name of page, commonly used as name of link
                    title='Participation in care activities'  # epresents the title of browser's tab
 )
