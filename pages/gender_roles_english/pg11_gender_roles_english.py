@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/stem-15',  # represents the url text
+                   path='/stem-15-english',  # represents the url text
                    name='Percentage of 15 year-old students who expect to work in STEM-related occupations at the age of 30',  # name of page, commonly used as name of link
                    title='Percentage of 15 year-old students who expect to work in STEM-related occupations at the age of 30'  # epresents the title of browser's tab
 )
