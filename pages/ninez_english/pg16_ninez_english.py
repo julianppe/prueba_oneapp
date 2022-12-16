@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/ratio-3rd',  # represents the url text
+                   path='/ratio-3rd-english',  # represents the url text
                    name='Ratio of standardized tests scores for 3rd grade students',  # name of page, commonly used as name of link
                    title='Ratio of standardized tests scores for 3rd grade students'  # epresents the title of browser's tab
 )
