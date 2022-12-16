@@ -7,14 +7,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/',  # represents the url text
+                   path='/violence-psychological-domestic',  # represents the url text
                    name='Percentage of women who have experienced psychological violence by a partner',  # name of page, commonly used as name of link
                    title='Percentage of women who have experienced psychological violence by a partner'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/violencia_psico.csv")
+df = pd.read_csv("datasets/gender_violence_english/violencia_psico.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,20 +38,20 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page1-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Bolivia", id='page1_gender_violence_english-pais_elect')
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page1-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page1_gender_violence_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page1-line', config={'displayModeBar':False})
+            dcc.Graph(id='page1_gender_violence_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page1-the_year',
+        dcc.RangeSlider(id='page1_gender_violence_english-the_year',
                 min=2000,
                 max=2021,
                 value=[2000,2021],
@@ -62,22 +62,14 @@ layout = html.Div([
 ])
 
 
-@callback(
-    Output('page1-pais_elect', "value"),
-    Output("store", "data"),
-    Input('page1-pais_elect', "value"),
-    State("store", "data"),
-)
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
+
+
 
 @callback(
-    Output('page1-line', 'figure'),
-    Input('page1-pais_elect', 'value'),
-    Input('page1-comparacion_por_elect', 'value'),
-    [Input('page1-the_year','value')]
+    Output('page1_gender_violence_english-line', 'figure'),
+    Input('page1_gender_violence_english-pais_elect', 'value'),
+    Input('page1_gender_violence_english-comparacion_por_elect', 'value'),
+    [Input('page1_gender_violence_english-the_year','value')]
 )
 
 

@@ -14,7 +14,7 @@ dash.register_page(__name__,
 
 
 # page 1 data
-df = pd.read_csv("datasets/violencia_sexual_nodom.csv")
+df = pd.read_csv("datasets/gender_violence_english/violencia_sexual_nodom.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,20 +38,20 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, id='page6-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Bolivia", id='page6_gender_violence_english-pais_elect')
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page6-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page6_gender_violence_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page6-line', config={'displayModeBar':False})
+            dcc.Graph(id='page6_gender_violence_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page6-the_year',
+        dcc.RangeSlider(id='page6_gender_violence_english-the_year',
                 min=2000,
                 max=2021,
                 value=[2000,2021],
@@ -62,22 +62,14 @@ layout = html.Div([
 ])
 
 
-@callback(
-    Output('page6-pais_elect', "value"),
-    Output("store", "data"),
-    Input('page6-pais_elect', "value"),
-    State("store", "data"),
-)
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
+
+
 
 @callback(
-    Output('page6-line', 'figure'),
-    Input('page6-pais_elect', 'value'),
-    Input('page6-comparacion_por_elect', 'value'),
-    [Input('page6-the_year','value')]
+    Output('page6_gender_violence_english-line', 'figure'),
+    Input('page6_gender_violence_english-pais_elect', 'value'),
+    Input('page6_gender_violence_english-comparacion_por_elect', 'value'),
+    [Input('page6_gender_violence_english-the_year','value')]
 )
 
 
