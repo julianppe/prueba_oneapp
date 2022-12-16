@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+
+  genlac_dash_ninez_spanish:
+    image: genlac_dash_ninez_spanish:latest
+    container_name: "genlac_dash_ninez_spanish"
+    restart: always
+    ports:
+      - 5001:5000
