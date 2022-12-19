@@ -7,7 +7,7 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/women-high-10-15',  # represents the url text
+                   path='/women-10-low-15',  # represents the url text
                    name='Percentage of women among the bottom 10% test scores for 15 year-old students',  # name of page, commonly used as name of link
                    title='Percentage of women among the bottom 10% test scores for 15 year-old students'  # epresents the title of browser's tab
 )
