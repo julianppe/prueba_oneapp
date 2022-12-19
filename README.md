@@ -1,2 +1,2 @@
-# prueba_oneapp
- 
+estos archivos son para generar la imagen del repositorio de los gráficos genlac de julian https://github.com/julianppe/prueba_oneapp
+yo se los pasé a él para que los ponga en su repo, pero los dejo acá también para tenerlos nosotros por las dudas

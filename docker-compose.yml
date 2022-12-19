@@ -1,9 +1,23 @@
 version: '3.3'
 services:
 
-  genlac_dash_ninez_spanish:
-    image: genlac_dash_ninez_spanish:latest
-    container_name: "genlac_dash_ninez_spanish"
+  genlac_graphics:
+    image: genlac_graphics:latest
+    container_name: "genlac_graphics"
     restart: always
-    ports:
-      - 5001:5000
+    expose:
+      - 5000
+    #ports:
+    #  - 5001:5000
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik_web
+      - traefik.http.routers.genlac-graphics.rule=Host(`genlac-graphics.econo.unlp.edu.ar`)
+      - traefik.http.routers.genlac-graphics.tls=true
+      - traefik.http.routers.genlac-graphics.tls.certresolver=mytlschallenge
+    networks:
+      - traefik_web
+
+networks:
+  traefik_web:
+    external: true
