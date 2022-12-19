@@ -93,7 +93,7 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
     # Grafico con IC:
-    if comparacion_por_v == 'Brecha mujeres - hombres':
+    if comparacion_por_v == 'Women - men gap':
         fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
         labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
