@@ -71,4 +71,5 @@ navbar_empleo_english = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand=True,
 )

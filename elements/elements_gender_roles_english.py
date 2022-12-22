@@ -75,4 +75,5 @@ navbar_gender_roles_english = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand=True,
 )

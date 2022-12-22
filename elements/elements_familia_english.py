@@ -88,4 +88,5 @@ navbar_familia_english = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand=True,
 )

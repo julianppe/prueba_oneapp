@@ -60,4 +60,5 @@ navbar_gender_violence_spanish = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand=True,
 )

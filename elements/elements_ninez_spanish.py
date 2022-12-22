@@ -81,4 +81,5 @@ navbar_ninez_spanish = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand=True,
 )
