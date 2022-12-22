@@ -70,4 +70,7 @@ navbar_empleo_spanish = dbc.Navbar(
     #outline=True, 
     color="light",
     dark=True,
+    expand='lg',
+    fixed='top',
+    fluid=True,
 )
