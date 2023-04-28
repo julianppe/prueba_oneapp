@@ -9,14 +9,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/children-per-woman',  # represents the url text
-                   name='Number of children per woman',  # name of page, commonly used as name of link
-                   title='Number of children per woman'  # epresents the title of browser's tab
+                   path='/total-fertility-rate',  # represents the url text
+                   name='Total fertility rate',  # name of page, commonly used as name of link
+                   title='Total fertility rate'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/numero_hijos_vivos.csv")
+df = pd.read_csv("datasets/familia_english/fecundidad_total.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -40,20 +40,20 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Bolivia",  id='page20_familia_english-pais_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Bolivia",  id='page29_familia_english-pais_elect')
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page20_familia_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page29_familia_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page20_familia_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page29_familia_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page20_familia_english-the_year',
+        dcc.RangeSlider(id='page29_familia_english-the_year',
                 min=2000,
                 max=2021,
                 value=[2000,2021],
@@ -67,10 +67,10 @@ layout = html.Div([
 
 
 @callback(
-    Output('page20_familia_english-line', 'figure'),
-    Input('page20_familia_english-pais_elect', 'value'),
-    Input('page20_familia_english-comparacion_por_elect', 'value'),
-    [Input('page20_familia_english-the_year','value')]
+    Output('page29_familia_english-line', 'figure'),
+    Input('page29_familia_english-pais_elect', 'value'),
+    Input('page29_familia_english-comparacion_por_elect', 'value'),
+    [Input('page29_familia_english-the_year','value')]
 )
 
 

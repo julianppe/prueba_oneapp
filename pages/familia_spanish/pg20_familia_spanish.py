@@ -7,14 +7,13 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/tasa-fecundidad',  # represents the url text
-                   name='Tasa de fecundidad',  # name of page, commonly used as name of link
-                   title='Tasa de fecundidad'  # epresents the title of browser's tab
+                   path='/hijos-por-mujer',  # represents the url text
+                   name='Número de hijos por mujer',  # name of page, commonly used as name of link
+                   title='Número de hijos por mujer'  # epresents the title of browser's tab
 )
 
-
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/fecundidad.csv")
+df = pd.read_csv("datasets/familia_spanish/numero_hijos_vivos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
