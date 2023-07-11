@@ -1,4 +1,5 @@
 from dash import dcc
+import pandas as pd
 
 df = pd.read_csv("datasets/empleo_spanish/participacion.csv")
 df['pais'] = df['pais'].astype(str)
