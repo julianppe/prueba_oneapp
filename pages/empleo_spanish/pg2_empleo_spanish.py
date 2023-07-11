@@ -3,6 +3,7 @@ from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
+import utils
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
@@ -38,7 +39,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Argentina", id='page2_empleo_spanish-pais_elect')
+            utils.app_spanning_input
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page2_empleo_spanish-comparacion_por_elect')
@@ -76,16 +77,11 @@ layout = html.Div([
 
 @callback(
     Output('page2_empleo_spanish-line', 'figure'),
-    Output('store', 'data'),
     Input('page2_empleo_spanish-pais_elect', 'value'),
     Input('page2_empleo_spanish-comparacion_por_elect', 'value'),
     [Input('page2_empleo_spanish-the_year','value')]
 )
 
-def sync_dropdowns(dd_pais, store_pais):
-    if dd_pais is None:
-        return store_pais, no_update
-    return dd_pais, dd_pais
 
 def update_graphs(pais_v, comparacion_por_v, years_chosen):
     dff = df.copy()
