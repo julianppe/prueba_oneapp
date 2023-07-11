@@ -1,7 +1,7 @@
 from dash import dcc
 import pandas as pd
 
-df = pd.read_csv("datasets/empleo_spanish/participacion.csv")
+df = pd.read_csv("D:/Dropbox/multipage/projectGENLAC/dash_final_oneapp/src_local/datasets/empleo_spanish/participacion.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 
