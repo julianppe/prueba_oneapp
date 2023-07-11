@@ -38,6 +38,8 @@ app_empleo_spanish = DashProxy(
     server=server,
     use_pages=True,
     external_stylesheets=external_stylesheets,
+    prevent_initial_callbacks=True,
+    suppress_callback_exceptions=True,
     url_base_pathname='/empleo_spanish/'
 )
 
