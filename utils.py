@@ -11,7 +11,8 @@ app_spanning_input = dcc.Dropdown(
     persistence=True,
     persistence_type = 'memory',
     multi=True,
-    value="Argentina"
+    value="Argentina",
+    className="bg-light"
 )
 
 # from dash import dcc
