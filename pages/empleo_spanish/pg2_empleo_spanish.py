@@ -76,11 +76,16 @@ layout = html.Div([
 
 @callback(
     Output('page2_empleo_spanish-line', 'figure'),
+    Output('store', 'data'),
     Input('page2_empleo_spanish-pais_elect', 'value'),
     Input('page2_empleo_spanish-comparacion_por_elect', 'value'),
     [Input('page2_empleo_spanish-the_year','value')]
 )
 
+def sync_dropdowns(dd_pais, store_pais):
+    if dd_pais is None:
+        return store_pais, no_update
+    return dd_pais, dd_pais
 
 def update_graphs(pais_v, comparacion_por_v, years_chosen):
     dff = df.copy()
