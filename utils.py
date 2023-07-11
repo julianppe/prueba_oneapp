@@ -1,5 +1,7 @@
 from dash import dcc
 
+df = pd.read_csv("datasets/empleo_spanish/participacion.csv")
+df['pais'] = df['pais'].astype(str)
 app_spanning_input = dcc.Dropdown(
     options=[{'label': x, 'value': x} for x in df.pais.unique()],
     id="all-pages-pais",
