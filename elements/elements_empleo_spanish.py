@@ -98,7 +98,7 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021'}
 
-ranger_slider_year_empleo_spanish = dcc.RangeSlider(id='page1_empleo_spanish-the_year',
+ranger_slider_year_empleo_spanish = dcc.RangeSlider(
         min=2000,
         max=2021,
         value=[2000,2021],
