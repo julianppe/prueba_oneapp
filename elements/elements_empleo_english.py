@@ -1,6 +1,7 @@
 from dash import html, dcc, Input, Output, State, html
 import dash_bootstrap_components as dbc
 from dash import page_registry, page_container
+import pandas as pd
 
 dropdown_empleo_english = dbc.Row([
     dbc.Col(
@@ -73,3 +74,6 @@ navbar_empleo_english = dbc.Navbar(
     dark=True,
     expand=True,
 )
+
+
+

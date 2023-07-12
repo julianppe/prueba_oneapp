@@ -1,6 +1,7 @@
 from dash import html, dcc, Input, Output, State, html
 import dash_bootstrap_components as dbc
 from dash import page_registry, page_container
+import pandas as pd
 
 dropdown_empleo_spanish = dbc.Row([
     dbc.Col(
@@ -72,3 +73,18 @@ navbar_empleo_spanish = dbc.Navbar(
     dark=True,
     expand=True,
 )
+
+df = pd.read_csv("datasets/empleo_spanish/participacion.csv")
+df['indicador'] = df['indicador'].astype(str)
+df['pais'] = df['pais'].astype(str)
+
+dropdown_pais_empleo_spanish = dcc.Dropdown(
+    options=[{'label': x, 'value': x} for x in df.pais.unique()],
+    id="all-pages-year",
+    persistence=True,
+    persistence_type = 'memory',
+    multi=True,
+    value="Argentina",
+    className="bg-light"
+)
+
