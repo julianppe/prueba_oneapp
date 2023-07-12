@@ -43,7 +43,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dropdown_pais_empleo_spanish
+            dropdown_pais_empleo_spanish,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, className="bg-light", persistence=True, persistence_type='memory', value='Total', id='page1_empleo_spanish-comparacion_por_elect')
@@ -61,9 +61,7 @@ layout = html.Div([
                 max=2021,
                 value=[2000,2021],
                 marks=mark_values,
-                step=1,
-                persistence=True,
-                persistence_type='memory')
+                step=1)
         ], width=12),
     ])
 ])

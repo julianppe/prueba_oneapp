@@ -81,7 +81,7 @@ df['pais'] = df['pais'].astype(str)
 
 dropdown_pais_empleo_english = dcc.Dropdown(
     options=[{'label': x, 'value': x} for x in df.pais.unique()],
-    id="all-pages-dropdown-pais-empleo-spanish",
+    id="all-pages-dropdown-pais-empleo-english",
     persistence=True,
     persistence_type = 'memory',
     multi=True,
