@@ -6,6 +6,7 @@ import pandas as pd
 from elements.elements_familia_spanish import dropdown_pais_familia_spanish2, ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
+from elements.elements_empleo_spanish import generate_dropdown
 
 dash.register_page(__name__,
                    path='/horas-tareas-domesticas-familia',  # represents the url text
@@ -22,6 +23,9 @@ df['comparacion_por'] = df['comparacion_por'].astype(str)
 df['ano'] = df['ano'].astype(int)
 df['valor'] = df['valor'].round(decimals = 2)
 
+options = list(df['pais'].unique())
+dropdown = generate_dropdown(options)
+
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
 list_comparacion_por_orden = list(df['comparacion_por_orden'].unique())
@@ -30,7 +34,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dropdown_pais_familia_spanish2,
+            dropdown,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Ratio mujeres/hombres', id='page11_familia_spanish-comparacion_por_elect')
@@ -53,7 +57,7 @@ layout = html.Div([
 
 @callback(
     Output('page11_familia_spanish-line', 'figure'),
-    Input('all-pages-dropdown-pais-familia-spanish2', 'value'),
+    Input('all-pages-dropdown-pais-familia-spanish', 'value'),
     Input('page11_familia_spanish-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-familia-spanish','value')]
 )
