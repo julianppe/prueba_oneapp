@@ -68,17 +68,6 @@ layout = html.Div([
     ])
 ])
 
-#@callback(
-#    Output('page1_empleo_spanish-pais_elect', 'value'),
-#    Output("store_empleo_spanish", "data"),
-#    Input('page1_empleo_spanish-pais_elect', 'value'),
-#    State("store_empleo_spanish", "data"),
-#)
-#
-#def sync_dropdowns_spanish(dd_pais_empleo_spanish, store_empleo_spanish):
-#    if dd_pais_empleo_spanish is None:
-#        return store_empleo_spanish, no_update
-#    return dd_pais_empleo_spanish, dd_pais_empleo_spanish
 
 @callback(
     Output('page1_empleo_spanish-line', 'figure'),
