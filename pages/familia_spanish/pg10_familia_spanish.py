@@ -3,7 +3,7 @@ from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
-from elements.elements_familia_spanish import dropdown_pais_familia_spanish, ranger_slider_year_familia_spanish
+from elements.elements_familia_spanish import dropdown_pais_familia_spanish2, ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
@@ -30,7 +30,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dropdown_pais_familia_spanish,
+            dropdown_pais_familia_spanish2,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Ratio mujeres/hombres', id='page10_familia_spanish-comparacion_por_elect')
@@ -53,7 +53,7 @@ layout = html.Div([
 
 @callback(
     Output('page10_familia_spanish-line', 'figure'),
-    Input('all-pages-dropdown-pais-familia-spanish', 'value'),
+    Input('all-pages-dropdown-pais-familia-spanish2', 'value'),
     Input('page10_familia_spanish-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-familia-spanish','value')]
 )
