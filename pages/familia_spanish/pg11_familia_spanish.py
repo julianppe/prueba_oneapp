@@ -3,7 +3,7 @@ from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
-from elements.elements_familia_spanish import dropdown_pais_familia_spanish2, ranger_slider_year_familia_spanish
+from elements.elements_familia_spanish import ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_empleo_spanish import generate_dropdown
