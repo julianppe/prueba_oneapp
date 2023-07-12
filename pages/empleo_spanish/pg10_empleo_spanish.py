@@ -3,7 +3,7 @@ from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
-from elements.elements_empleo_spanish import dropdown_pais_empleo_spanish
+from elements.elements_empleo_spanish import dropdown_pais_empleo_spanish, ranger_slider_year_empleo_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
@@ -52,12 +52,7 @@ layout = html.Div([
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page10_empleo_spanish-the_year',
-                min=2000,
-                max=2021,
-                value=[2000,2021],
-                marks=mark_values,
-                step=1)
+            ranger_slider_year_empleo_spanish,
         ], width=12),
     ]),
 ])
@@ -75,7 +70,7 @@ layout = html.Div([
     Output('page10_empleo_spanish-line', 'figure'),
     Input('all-pages-dropdown-pais-empleo-spanish', 'value'),
     Input('page10_empleo_spanish-comparacion_por_elect', 'value'),
-    [Input('page10_empleo_spanish-the_year','value')]
+    [Input('all-pages-ranger-slider-year-empleo-spanish','value')]
 )
 
 
