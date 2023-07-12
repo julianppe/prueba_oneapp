@@ -6,7 +6,7 @@ import pandas as pd
 from elements.elements_familia_spanish import ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
-from elements.elements_empleo_spanish import generate_dropdown
+from elements.elements_familia_spanish import generate_dropdown
 
 dash.register_page(__name__,
                    path='/porcen-hog-mono',  # represents the url text
