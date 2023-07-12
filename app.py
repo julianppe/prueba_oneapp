@@ -74,6 +74,7 @@ app_empleo_english = DashProxy(
 
 app_empleo_english.layout = html.Div(
     [
+        dcc.Store(id="store_1", data='Argentina'),
         dbc.Container([
     dbc.Row(
         [

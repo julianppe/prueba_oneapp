@@ -54,7 +54,7 @@ navbar_empleo_english = dbc.Navbar(
                     [
                         dbc.NavbarToggler(id="navbar-toggler_empleo_english", n_clicks=0),
                         dbc.Collapse(
-                            dropdown_empleo_english, 
+                            dropdown_pais_empleo_english, 
                             className="ml-auto",
                             id="navbar-collapse_empleo_english",
                             is_open=False,
@@ -81,7 +81,7 @@ df['pais'] = df['pais'].astype(str)
 
 dropdown_pais_empleo_english = dcc.Dropdown(
     options=[{'label': x, 'value': x} for x in df.pais.unique()],
-    id="all-pages-year",
+    id="all-pages-dropdown-pais-empleo-english",
     persistence=True,
     persistence_type = 'memory',
     multi=True,

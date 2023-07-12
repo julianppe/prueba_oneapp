@@ -72,7 +72,7 @@ layout = html.Div([
 
 @callback(
     Output('page12_empleo_spanish-line', 'figure'),
-    Input('all-pages-year', 'value'),
+    Input('all-pages-dropdown-pais-empleo-spanish', 'value'),
     Input('page12_empleo_spanish-comparacion_por_elect', 'value'),
     [Input('page12_empleo_spanish-the_year','value')]
 )
