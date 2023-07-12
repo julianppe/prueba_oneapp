@@ -111,8 +111,7 @@ dropdown_pais_familia_spanish = dcc.Dropdown(
 
 
 df2 = pd.read_csv("datasets/familia_spanish/tareas_domesticas.csv")
-df2['indicador'] = df['indicador'].astype(str)
-df2['pais'] = df['pais'].astype(str)
+df2['pais'] = df2['pais'].astype(str)
 
 dropdown_pais_familia_spanish2 = dcc.Dropdown(
     options=[{'label': x, 'value': x} for x in df2.pais.unique()],
