@@ -3,9 +3,10 @@ from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
-from elements.elements_familia_spanish import dropdown_pais_familia_spanish, ranger_slider_year_familia_spanish
+from elements.elements_familia_spanish import ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, no_update
 from dash_extensions.enrich import Output, Input, State, callback
+from elements.elements_familia_spanish import generate_dropdown
 
 # To create meta tag for each page, define the title, image, and description.
 dash.register_page(__name__,
@@ -26,6 +27,9 @@ df['ano'] = df['ano'].astype(int)
 
 df['valor'] = df['valor'].round(decimals = 2)
 
+options = list(df['pais'].unique())
+dropdown = generate_dropdown(options)
+
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
 list_comparacion_por_orden = list(df['comparacion_por_orden'].unique())
@@ -35,7 +39,7 @@ layout = html.Div(
     [
         dbc.Row([
         dbc.Col([
-            dropdown_pais_familia_spanish,
+            dropdown,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, className="bg-light", persistence=True, persistence_type='memory', value='Total', id='page1_familia_spanish-comparacion_por_elect')

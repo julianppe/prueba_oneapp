@@ -97,42 +97,45 @@ def generate_dropdown(options):
     dropdown = dcc.Dropdown(
         options=[{'label': option, 'value': option} for option in options],
         value="Argentina",
-        id="all-pages-year",
+        id="all-pages-dropdown-pais-familia-spanish",
         persistence=True,
         persistence_type = 'memory',
         multi=True,
+        className="bg-light",
     )
     return dropdown
 
-df = pd.read_csv("datasets/familia_spanish/diferencia_edad.csv")
-df['indicador'] = df['indicador'].astype(str)
-df['pais'] = df['pais'].astype(str)
-df['comparacion_por'] = df['comparacion_por'].astype(str)
-df['ano'] = df['ano'].astype(int)
+# dropdown_pais_familia_spanish = dcc.Dropdown(
+#     options=[{'label': x, 'value': x} for x in df.pais.unique()],
+#     id="all-pages-dropdown-pais-familia-spanish",
+#     persistence=True,
+#     persistence_type = 'memory',
+#     multi=True,
+#     value="Argentina",
+#     className="bg-light"
+# )
 
-dropdown_pais_familia_spanish = dcc.Dropdown(
-    options=[{'label': x, 'value': x} for x in df.pais.unique()],
-    id="all-pages-dropdown-pais-familia-spanish",
-    persistence=True,
-    persistence_type = 'memory',
-    multi=True,
-    value="Argentina",
-    className="bg-light"
-)
+# df = pd.read_csv("datasets/familia_spanish/diferencia_edad.csv")
+# df['indicador'] = df['indicador'].astype(str)
+# df['pais'] = df['pais'].astype(str)
+# df['comparacion_por'] = df['comparacion_por'].astype(str)
+# df['ano'] = df['ano'].astype(int)
 
 
-df2 = pd.read_csv("datasets/familia_spanish/tareas_domesticas.csv")
-df2['pais'] = df2['pais'].astype(str)
 
-dropdown_pais_familia_spanish2 = dcc.Dropdown(
-    options=[{'label': x, 'value': x} for x in df2.pais.unique()],
-    id="all-pages-dropdown-pais-familia-spanish2",
-    persistence=True,
-    persistence_type = 'memory',
-    multi=True,
-    value="Argentina",
-    className="bg-light"
-)
+
+# df2 = pd.read_csv("datasets/familia_spanish/tareas_domesticas.csv")
+# df2['pais'] = df2['pais'].astype(str)
+
+# dropdown_pais_familia_spanish2 = dcc.Dropdown(
+#     options=[{'label': x, 'value': x} for x in df2.pais.unique()],
+#     id="all-pages-dropdown-pais-familia-spanish2",
+#     persistence=True,
+#     persistence_type = 'memory',
+#     multi=True,
+#     value="Argentina",
+#     className="bg-light"
+# )
 
 # Armar loop:
 mark_values = {2000:'2000',2001:'2001',2002:'2002',
