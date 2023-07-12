@@ -75,5 +75,17 @@ navbar_empleo_english = dbc.Navbar(
     expand=True,
 )
 
+df = pd.read_csv("datasets/empleo_english/participacion.csv")
+df['indicador'] = df['indicador'].astype(str)
+df['pais'] = df['pais'].astype(str)
 
+dropdown_pais_empleo_english = dcc.Dropdown(
+    options=[{'label': x, 'value': x} for x in df.pais.unique()],
+    id="all-pages-year",
+    persistence=True,
+    persistence_type = 'memory',
+    multi=True,
+    value="Argentina",
+    className="bg-light"
+)
 
