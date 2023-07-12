@@ -88,3 +88,23 @@ dropdown_pais_empleo_spanish = dcc.Dropdown(
     className="bg-light"
 )
 
+# Armar loop:
+mark_values = {2000:'2000',2001:'2001',2002:'2002',
+                2003:'2003',2004:'2004',2005:'2005',
+                2006:'2006',2007:'2007',2008:'2008',
+                2009:'2009',2010:'2010',2011:'2011',
+                2012:'2012',2015:'2015',2016:'2016',
+                2013:'2013',2014:'2014',2015:'2015',
+                2016:'2016',2017:'2017',2018:'2018',
+                2019:'2019',2020:'2020',2021:'2021'}
+
+ranger_slider_year_empleo_spanish = dcc.RangeSlider(id='page1_empleo_spanish-the_year',
+        min=2000,
+        max=2021,
+        value=[2000,2021],
+        marks=mark_values,
+        step=1,
+        persistence=True,
+        persistence_type = 'memory',
+        id="all-pages-ranger-slider-year-empleo-spanish"
+)
