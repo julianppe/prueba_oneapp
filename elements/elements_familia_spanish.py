@@ -96,7 +96,7 @@ navbar_familia_spanish = dbc.Navbar(
 def generate_dropdown(options, default):
     dropdown = dcc.Dropdown(
         options=[{'label': option, 'value': option} for option in options],
-        value=default,
+        value="Argentina",
         id="all-pages-dropdown-pais-familia-spanish",
         persistence=True,
         persistence_type = 'memory',
