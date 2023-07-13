@@ -22,7 +22,7 @@ df['ano'] = df['ano'].astype(int)
 df['valor'] = df['valor'].round(decimals = 2)
 
 options = list(df['pais'].unique())
-dropdown = generate_dropdown(options, "Bolivia")
+dropdown = generate_dropdown(options)
 
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
