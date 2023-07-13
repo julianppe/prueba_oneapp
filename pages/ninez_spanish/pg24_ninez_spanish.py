@@ -5,6 +5,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
+from elements.elements_ninez_spanish import ranger_slider_year_ninez_spanish, generate_dropdown
 
 dash.register_page(__name__,
                    path='/mujeres-10-alto-15',  # represents the url text
@@ -21,14 +22,8 @@ df['comparacion_por'] = df['comparacion_por'].astype(str)
 df['ano'] = df['ano'].astype(int)
 df['valor'] = df['valor'].round(decimals = 2)
 
-mark_values = {2000:'2000',2001:'2001',2002:'2002',
-                2003:'2003',2004:'2004',2005:'2005',
-                2006:'2006',2007:'2007',2008:'2008',
-                2009:'2009',2010:'2010',2011:'2011',
-                2012:'2012',2015:'2015',2016:'2016',
-                2013:'2013',2014:'2014',2015:'2015',
-                2016:'2016',2017:'2017',2018:'2018',
-                2019:'2019',2020:'2020',2021:'2021'}
+options = list(df['pais'].unique())
+dropdown = generate_dropdown(options)
 
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
@@ -38,7 +33,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in df.pais.unique()], multi=True, value="Argentina", id='page24_ninez_spanish-pais_elect')
+            dropdown,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total, matemática', id='page24_ninez_spanish-comparacion_por_elect')
@@ -51,12 +46,7 @@ layout = html.Div([
     ]),
         dbc.Row([
         dbc.Col([
-        dcc.RangeSlider(id='page24_ninez_spanish-the_year',
-                min=2000,
-                max=2021,
-                value=[2000,2021],
-                marks=mark_values,
-                step=1)
+            ranger_slider_year_ninez_spanish,
         ], width=12),
     ]),
 ])
@@ -65,9 +55,9 @@ layout = html.Div([
 
 @callback(
     Output('page24_ninez_spanish-line', 'figure'),
-    Input('page24_ninez_spanish-pais_elect', 'value'),
+    Input('all-pages-dropdown-pais-ninez-spanish', 'value'),
     Input('page24_ninez_spanish-comparacion_por_elect', 'value'),
-    [Input('page24_ninez_spanish-the_year','value')]
+    [Input('all-pages-ranger-slider-year-ninez-spanish','value')]
 )
 
 

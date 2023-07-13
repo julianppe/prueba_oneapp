@@ -162,6 +162,7 @@ app_ninez_spanish = DashProxy(
 
 app_ninez_spanish.layout = html.Div(
     [
+        dcc.Store(id="store_4", data='Argentina'),
         dbc.Container([
     dbc.Row(
         [
