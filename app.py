@@ -249,6 +249,7 @@ app_gender_roles_english = DashProxy(
 
 app_gender_roles_english.layout = html.Div(
     [
+        dcc.Store(id="store_7", data='Argentina'),
         dbc.Container([
     dbc.Row(
         [
