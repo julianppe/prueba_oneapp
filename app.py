@@ -278,6 +278,7 @@ app_gender_violence_spanish = DashProxy(
 
 app_gender_violence_spanish.layout = html.Div(
     [
+        dcc.Store(id="store_8", data='Bolivia'),
         dbc.Container([
     dbc.Row(
         [
@@ -306,6 +307,7 @@ app_gender_violence_english = DashProxy(
 
 app_gender_violence_english.layout = html.Div(
     [
+        dcc.Store(id="store_9", data='Bolivia'),
         dbc.Container([
     dbc.Row(
         [
