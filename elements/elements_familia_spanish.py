@@ -93,7 +93,7 @@ navbar_familia_spanish = dbc.Navbar(
     expand=True,
 )
 
-def generate_dropdown(options, default):
+def generate_dropdown(options):
     dropdown = dcc.Dropdown(
         options=[{'label': option, 'value': option} for option in options],
         value="Argentina",

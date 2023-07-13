@@ -133,6 +133,7 @@ app_familia_english = DashProxy(
 
 app_familia_english.layout = html.Div(
     [
+        dcc.Store(id="store_3", data='Argentina'),
         dbc.Container([
     dbc.Row(
         [
