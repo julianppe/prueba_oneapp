@@ -34,7 +34,7 @@ dropdown_familia_spanish = dbc.Row([
             dbc.DropdownMenuItem("Participación en actividades de ocio", href="/familia_spanish/actividades-ocio-familia"),
             dbc.DropdownMenuItem("Horas semanales dedicadas a actividades de ocio", href="/familia_spanish/horas-actividades-ocio-familia"),
             dbc.DropdownMenuItem(divider=True),
-            dbc.DropdownMenuItem("Fecundidad", header=True),
+            dbc.DropdownMenuItem("Fecundidad (DHS)", header=True),
             dbc.DropdownMenuItem("Número de hijos por mujer", href="/familia_spanish/hijos-por-mujer"),
             dbc.DropdownMenuItem("Tasa de fecundidad total", href="/familia_spanish/tasa-fecundidad-total"),
             dbc.DropdownMenuItem("Tasa de fecundidad deseada", href="/familia_spanish/tasa-fecundidad-deseada"),
@@ -45,6 +45,15 @@ dropdown_familia_spanish = dbc.Row([
             dbc.DropdownMenuItem("Porcentaje de mujeres sin acceso a métodos anticonceptivos", href="/familia_spanish/metodo-anticonceptivos-sinacceso"),
             dbc.DropdownMenuItem("Fecundidad adolescente", href="/familia_spanish/fecundidad-adolescente"),
             dbc.DropdownMenuItem("Matrimonio precoz", href="/familia_spanish/matrimonio-precoz"),
+            dbc.DropdownMenuItem(divider=True),
+            dbc.DropdownMenuItem("Fecundidad (MICS)", header=True),
+            dbc.DropdownMenuItem("Número de hijos por mujer", href="/familia_spanish/hijos-por-mujer-mics"),
+            dbc.DropdownMenuItem("Tasa de fecundidad total", href="/familia_spanish/tasa-fecundidad-total-mics"),
+            dbc.DropdownMenuItem("Tasa de fecundidad deseada", href="/familia_spanish/tasa-fecundidad-deseada-mics"),
+            dbc.DropdownMenuItem("Porcentaje de mujeres que utilizan métodos anticonceptivos (cualquier método)", href="/familia_spanish/metodo-anticonceptivos-mics"),
+            dbc.DropdownMenuItem("Porcentaje de mujeres que utilizan métodos anticonceptivos modernos", href="/familia_spanish/metodo-anticonceptivos-modernos-mics"),
+            dbc.DropdownMenuItem("Porcentaje de mujeres sin acceso a métodos anticonceptivos", href="/familia_spanish/metodo-anticonceptivos-sinacceso-mics"),
+            dbc.DropdownMenuItem("Fecundidad adolescente", href="/familia_spanish/fecundidad-adolescente-mics"),
         ],
         size="lg",
         nav=True,
@@ -105,37 +114,6 @@ def generate_dropdown(options):
     )
     return dropdown
 
-# dropdown_pais_familia_spanish = dcc.Dropdown(
-#     options=[{'label': x, 'value': x} for x in df.pais.unique()],
-#     id="all-pages-dropdown-pais-familia-spanish",
-#     persistence=True,
-#     persistence_type = 'memory',
-#     multi=True,
-#     value="Argentina",
-#     className="bg-light"
-# )
-
-# df = pd.read_csv("datasets/familia_spanish/diferencia_edad.csv")
-# df['indicador'] = df['indicador'].astype(str)
-# df['pais'] = df['pais'].astype(str)
-# df['comparacion_por'] = df['comparacion_por'].astype(str)
-# df['ano'] = df['ano'].astype(int)
-
-
-
-
-# df2 = pd.read_csv("datasets/familia_spanish/tareas_domesticas.csv")
-# df2['pais'] = df2['pais'].astype(str)
-
-# dropdown_pais_familia_spanish2 = dcc.Dropdown(
-#     options=[{'label': x, 'value': x} for x in df2.pais.unique()],
-#     id="all-pages-dropdown-pais-familia-spanish2",
-#     persistence=True,
-#     persistence_type = 'memory',
-#     multi=True,
-#     value="Argentina",
-#     className="bg-light"
-# )
 
 # Armar loop:
 mark_values = {2000:'2000',2001:'2001',2002:'2002',
@@ -145,12 +123,13 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2012:'2012',2015:'2015',2016:'2016',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
-                2019:'2019',2020:'2020',2021:'2021'}
+                2019:'2019',2020:'2020',2021:'2021',
+                2022:'2022'}
 
 ranger_slider_year_familia_spanish = dcc.RangeSlider(
         min=2000,
-        max=2021,
-        value=[2000,2021],
+        max=2022,
+        value=[2000,2022],
         marks=mark_values,
         step=1,
         persistence=True,
