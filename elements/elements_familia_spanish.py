@@ -49,7 +49,6 @@ dropdown_familia_spanish = dbc.Row([
             dbc.DropdownMenuItem("Fecundidad (MICS)", header=True),
             dbc.DropdownMenuItem("Número de hijos por mujer", href="/familia_spanish/hijos-por-mujer-mics"),
             dbc.DropdownMenuItem("Tasa de fecundidad total", href="/familia_spanish/tasa-fecundidad-total-mics"),
-            dbc.DropdownMenuItem("Tasa de fecundidad deseada", href="/familia_spanish/tasa-fecundidad-deseada-mics"),
             dbc.DropdownMenuItem("Porcentaje de mujeres que utilizan métodos anticonceptivos (cualquier método)", href="/familia_spanish/metodo-anticonceptivos-mics"),
             dbc.DropdownMenuItem("Porcentaje de mujeres que utilizan métodos anticonceptivos modernos", href="/familia_spanish/metodo-anticonceptivos-modernos-mics"),
             dbc.DropdownMenuItem("Porcentaje de mujeres sin acceso a métodos anticonceptivos", href="/familia_spanish/metodo-anticonceptivos-sinacceso-mics"),

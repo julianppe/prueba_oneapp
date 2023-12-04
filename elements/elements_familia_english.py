@@ -48,7 +48,6 @@ dropdown_familia_english = dbc.Row([
             dbc.DropdownMenuItem("Fertility (MICS)", header=True),
             dbc.DropdownMenuItem("Number of children per woman", href="/familia_english/children-per-woman-mics"),
             dbc.DropdownMenuItem("Total fertility rate", href="/familia_english/total-fertility-rate-mics"),
-            dbc.DropdownMenuItem("Desired fertility rate", href="/familia_english/desired-fertility-rate-mics"),
             dbc.DropdownMenuItem("Percentage of women using contraception (any method)", href="/familia_english/method-contraception-mics"),
             dbc.DropdownMenuItem("Percentage of women using modern contraceptive methods", href="/familia_english/modern-contraception-method-mics"),
             dbc.DropdownMenuItem("Percentage of women without access to contraception", href="/familia_english/without-contraception-access-mics"),
