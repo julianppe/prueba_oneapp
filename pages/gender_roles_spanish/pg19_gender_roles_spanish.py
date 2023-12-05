@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_gender_roles_spanish import ranger_slider_year_gender_roles_spanish, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/justifica-golpear-dhs',  # represents the url text
-                   name='Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (DHS)',  # name of page, commonly used as name of link
-                   title='Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (DHS)'  # epresents the title of browser's tab
+                   path='/aprenden-rapido-6to-innato',  # represents the url text
+                   name='Docentes de 6to grado que opinan que niños o niñas aprenden más rápido matemática, lengua o ciencias debido a características innatas',  # name of page, commonly used as name of link
+                   title='Docentes de 6to grado que opinan que niños o niñas aprenden más rápido matemática, lengua o ciencias debido a características innatas'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_roles_spanish/justifica_golpear_dhs.csv")
+df = pd.read_csv("datasets/gender_roles_spanish/aprenden_rapido_6to_innato.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -36,12 +36,12 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Mujeres', id='page17_gender_roles_spanish-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Género, matemática', id='page19_gender_roles_spanish-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page17_gender_roles_spanish-line', config={'displayModeBar':False})
+            dcc.Graph(id='page19_gender_roles_spanish-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
@@ -54,10 +54,11 @@ layout = html.Div([
 
 
 
+
 @callback(
-    Output('page17_gender_roles_spanish-line', 'figure'),
+    Output('page19_gender_roles_spanish-line', 'figure'),
     Input('all-pages-dropdown-pais-gender-roles-spanish', 'value'),
-    Input('page17_gender_roles_spanish-comparacion_por_elect', 'value'),
+    Input('page19_gender_roles_spanish-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-gender-roles-spanish','value')]
 )
 

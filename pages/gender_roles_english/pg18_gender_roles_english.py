@@ -5,17 +5,17 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
-from elements.elements_gender_roles_spanish import ranger_slider_year_gender_roles_spanish, generate_dropdown
+from elements.elements_gender_roles_english import ranger_slider_year_gender_roles_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/justifica-golpear-dhs',  # represents the url text
-                   name='Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (DHS)',  # name of page, commonly used as name of link
-                   title='Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (DHS)'  # epresents the title of browser's tab
+                   path='/learn-faster-3rd-innate',  # represents the url text
+                   name='Third-grade teachers who think that boys or girls learn faster math or language due to their innate characteristics',  # name of page, commonly used as name of link
+                   title='Third-grade teachers who think that boys or girls learn faster math or language due to their innate characteristics'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_roles_spanish/justifica_golpear_dhs.csv")
+df = pd.read_csv("datasets/gender_roles_english/aprenden_rapido_3ro_innato.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -36,17 +36,17 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Mujeres', id='page17_gender_roles_spanish-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Gender, mathematics', id='page18_gender_roles_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page17_gender_roles_spanish-line', config={'displayModeBar':False})
+            dcc.Graph(id='page18_gender_roles_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
         dbc.Col([
-            ranger_slider_year_gender_roles_spanish,
+            ranger_slider_year_gender_roles_english,
         ], width=12),
     ]),
 ])
@@ -55,10 +55,10 @@ layout = html.Div([
 
 
 @callback(
-    Output('page17_gender_roles_spanish-line', 'figure'),
-    Input('all-pages-dropdown-pais-gender-roles-spanish', 'value'),
-    Input('page17_gender_roles_spanish-comparacion_por_elect', 'value'),
-    [Input('all-pages-ranger-slider-year-gender-roles-spanish','value')]
+    Output('page18_gender_roles_english-line', 'figure'),
+    Input('all-pages-dropdown-pais-gender-roles-english', 'value'),
+    Input('page18_gender_roles_english-comparacion_por_elect', 'value'),
+    [Input('all-pages-ranger-slider-year-gender-roles-english','value')]
 )
 
 
@@ -75,10 +75,10 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     disclaimer = dff['disclaimer'].iat[0]
     if comparacion_por_v == 'Brecha mujeres - hombres':
         fig_line = px.bar(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
-        labels=dict(ano="Año", valor="", pais="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."], 
-        labels=dict(ano="Año", valor="", pais="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
+        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_layout(
         xaxis=dict( 
             showline=True,
