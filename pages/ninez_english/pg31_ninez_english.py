@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_ninez_english import ranger_slider_year_ninez_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/score-6th',  # represents the url text
-                   name='Average score in standardized tests for 6th grade students',  # name of page, commonly used as name of link
-                   title='Average score in standardized tests for 6th grade students'  # epresents the title of browser's tab
+                   path='/hse-index-6th',  # represents the url text
+                   name="Self-regulation index for 6th grade students",  # name of page, commonly used as name of link
+                   title="Self-regulation index for 6th grade students"  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/ninez_english/puntajes_6to.csv")
+df = pd.read_csv("datasets/ninez_english/hse_indice_6to.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -36,12 +36,12 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total, mathematic', id='page14_ninez_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total, mathematic', id='page31_ninez_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page14_ninez_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page31_ninez_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
@@ -53,11 +53,10 @@ layout = html.Div([
 
 
 
-
 @callback(
-    Output('page14_ninez_english-line', 'figure'),
+    Output('page31_ninez_english-line', 'figure'),
     Input('all-pages-dropdown-pais-ninez-english', 'value'),
-    Input('page14_ninez_english-comparacion_por_elect', 'value'),
+    Input('page31_ninez_english-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-ninez-english','value')]
 )
 
@@ -74,12 +73,12 @@ def update_graphs(pais_v, comparacion_por_v, Year_chosen):
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
     if comparacion_por_v == "Women - men gap":
-        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
+        fig_line = px.line(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar',
         symbol= 'desagregacion',
-        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.bar(dff, x='ano', y='valor', color='pais2', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
-        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
+        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_layout(
         xaxis=dict( 
             showline=True,

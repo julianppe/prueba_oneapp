@@ -74,12 +74,12 @@ def update_graphs(pais_v, comparacion_por_v, Year_chosen):
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
     if comparacion_por_v == "Women - men gap":
-        fig_line = px.line(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar',
+        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
-        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
-        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        fig_line = px.bar(dff, x='ano', y='valor', color='pais2', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."],
+        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_layout(
         xaxis=dict( 
             showline=True,
