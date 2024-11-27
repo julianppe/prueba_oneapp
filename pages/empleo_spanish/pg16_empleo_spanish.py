@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/empleador',  # represents the url text
-                   name='Empleadores/as',  # name of page, commonly used as name of link
-                   title='Empleadores/as'  # epresents the title of browser's tab
+                   path='/adultos-con-alta-calificacion',  # represents the url text
+                   name='Adultos con alta calificación',  # name of page, commonly used as name of link
+                   title='Adultos con alta calificación'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/empleo_spanish/empleadores.csv")
+df = pd.read_csv("datasets/empleo_spanish/calificacion_alta.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -43,12 +43,12 @@ layout = html.Div([
             dropdown_pais_empleo_spanish,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page6_empleo_spanish-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page16_empleo_spanish-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page6_empleo_spanish-line', config={'displayModeBar':False})
+            dcc.Graph(id='page16_empleo_spanish-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
@@ -60,17 +60,17 @@ layout = html.Div([
 
 
 # @callback(
-#     Output('page6_empleo_spanish-pais_elect', "value"),
+#     Output('page16_empleo_spanish-pais_elect', "value"),
 #     Output("store_empleo_spanish", "data"),
-#     Input('page6_empleo_spanish-pais_elect', "value"),
+#     Input('page16_empleo_spanish-pais_elect', "value"),
 #     State("store_empleo_spanish", "data"),
 # )
 
 
 @callback(
-    Output('page6_empleo_spanish-line', 'figure'),
+    Output('page16_empleo_spanish-line', 'figure'),
     Input('all-pages-dropdown-pais-empleo-spanish', 'value'),
-    Input('page6_empleo_spanish-comparacion_por_elect', 'value'),
+    Input('page16_empleo_spanish-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-empleo-spanish','value')]
 )
 

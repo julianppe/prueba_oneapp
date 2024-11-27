@@ -23,6 +23,7 @@ dropdown_empleo_spanish = dbc.Row([
             dbc.DropdownMenuItem("Salario horario promedio", href="/empleo_spanish/salario-horario"),
             dbc.DropdownMenuItem("Ingreso laboral mensual", href="/empleo_spanish/ingreso-laboral"),
             dbc.DropdownMenuItem("Brecha salarial por género condicionada", href="/empleo_spanish/brecha-salarial-genero"),
+            dbc.DropdownMenuItem("Porcentaje de adultos sin ingresos propios", href="/empleo_spanish/sin-ingresos"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Calificación de la población adulta", header=True),
             dbc.DropdownMenuItem("Años de educación", href="/empleo_spanish/anios-educacion"),
