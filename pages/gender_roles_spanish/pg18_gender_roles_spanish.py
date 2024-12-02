@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_gender_roles_spanish import ranger_slider_year_gender_roles_spanish, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/aprenden-rapido-3ro-innato',  # represents the url text
-                   name='Docentes de 3er grado que opinan que niños o niñas aprenden más rápido matemática o lengua debido a características innatas',  # name of page, commonly used as name of link
-                   title='Docentes de 3er grado que opinan que niños o niñas aprenden más rápido matemática o lengua debido a características innatas'  # epresents the title of browser's tab
+                   path='/aprenden-rapido-6to-innato',  # represents the url text
+                   name='Docentes de 6to grado que opinan que niños o niñas aprenden más rápido matemática, lengua o ciencias debido a características innatas',  # name of page, commonly used as name of link
+                   title='Docentes de 6to grado que opinan que niños o niñas aprenden más rápido matemática, lengua o ciencias debido a características innatas'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_roles_spanish/aprenden_rapido_3ro_innato.csv")
+df = pd.read_csv("datasets/gender_roles_spanish/aprenden_rapido_6to_innato.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -50,6 +50,8 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
+
+
 
 
 

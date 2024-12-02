@@ -31,8 +31,6 @@ dropdown_gender_roles_spanish = dbc.Row([
             dbc.DropdownMenuItem("Población adulta de acuerdo con la frase “ser ama de casa es tan gratificante como tener un trabajo remunerado”", href="/gender_roles_spanish/ama-de-casa"),
             dbc.DropdownMenuItem("Población adulta de acuerdo con la frase “las mujeres deben trabajar sólo si la pareja no gana suficiente”", href="/gender_roles_spanish/mujer-trabaja-pareja"),
             dbc.DropdownMenuItem("Población adulta de acuerdo con la frase “es mejor que la mujer se concentre en el hogar y el hombre en el trabajo”", href="/gender_roles_spanish/mujer-casa-hombre-trabajo"),
-            dbc.DropdownMenuItem("Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (DHS)", href="/gender_roles_spanish/justifica-golpear-dhs"),
-            dbc.DropdownMenuItem("Porcentaje de mujeres que piensan que está justificado que los maridos golpeen a sus esposas en algunas situaciones (MICS)", href="/gender_roles_spanish/justifica-golpear-mics"),
         ],
         size="lg",
         nav=True,

@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_gender_roles_english import ranger_slider_year_gender_roles_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/justified-beat-dhs',  # represents the url text
-                   name='Percentage of women who think that husbands are justified to beat their wives in some situations (DHS)',  # name of page, commonly used as name of link
-                   title='Percentage of women who think that husbands are justified to beat their wives in some situations (DHS)'  # epresents the title of browser's tab
+                   path='/learn-faster-3rd-innate',  # represents the url text
+                   name='Third-grade teachers who think that boys or girls learn faster math or language due to their innate characteristics',  # name of page, commonly used as name of link
+                   title='Third-grade teachers who think that boys or girls learn faster math or language due to their innate characteristics'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_roles_english/justifica_golpear_dhs.csv")
+df = pd.read_csv("datasets/gender_roles_english/aprenden_rapido_3ro_innato.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -36,7 +36,7 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page17_gender_roles_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Gender, mathematics', id='page17_gender_roles_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([

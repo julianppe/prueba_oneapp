@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_gender_violence_english import ranger_slider_year_gender_violence_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/violence-physical-no-domestic',  # represents the url text
-                   name='Percentage of women who have experienced physical violence by non-partners',  # name of page, commonly used as name of link
-                   title='Percentage of women who have experienced physical violence by non-partners'  # epresents the title of browser's tab
+                   path='/justifiable-beat',  # represents the url text
+                   name='Percentage of the population agreeing it is justifiable for man to beat his wife',  # name of page, commonly used as name of link
+                   title='Percentage of the population agreeing it is justifiable for man to beat his wife'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_violence_english/violencia_fisica_nodom.csv")
+df = pd.read_csv("datasets/gender_violence_english/justifiable_beat.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

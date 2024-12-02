@@ -31,8 +31,6 @@ dropdown_gender_roles_english = dbc.Row([
             dbc.DropdownMenuItem("Adult population agreeing with the statement “Being a housewife is just as fulfilling as working for pay”", href="/gender_roles_english/housewife"),
             dbc.DropdownMenuItem("Adult population agreeing with the statement “Women have to work for pay only if their husband does not earn enough”", href="/gender_roles_english/woman-work-husband"),
             dbc.DropdownMenuItem("Adult population agreeing with the statement “It is better if man works and woman stays at home”", href="/gender_roles_english/woman-stays-man-work"),
-            dbc.DropdownMenuItem("Percentage of women who think that husbands are justified to beat their wives in some situations (DHS)", href="/gender_roles_english/justified-beat-dhs"),
-            dbc.DropdownMenuItem("Percentage of women who think that husbands are justified to beat their wives in some situations (MICS)", href="/gender_roles_english/justified-beat-mics"),
         ],
         size="lg",
         nav=True,

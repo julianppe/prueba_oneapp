@@ -11,6 +11,7 @@ dropdown_gender_violence_spanish = dbc.Row([
             dbc.DropdownMenuItem("Porcentaje de mujeres que han experimentado violencia física doméstica", href="/gender_violence_spanish/violencia-fisica-domestica"),
             dbc.DropdownMenuItem("Porcentaje de mujeres que han experimentado violencia sexual doméstica", href="/gender_violence_spanish/violencia-sexual-domestica"),
             dbc.DropdownMenuItem("Porcentaje de mujeres que han experimentado algún tipo de violencia doméstica", href="/gender_violence_spanish/violencia-domestica"),
+            dbc.DropdownMenuItem("Porcentaje de la población que piensa que está justificado que los hombres golpeen a sus esposas", href="/gender_violence_spanish/justifica-golpear"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Violencia no doméstica", header=True),
             dbc.DropdownMenuItem("Porcentaje de mujeres que han sufrido violencia física no domestica", href="/gender_violence_spanish/violencia-fisica-no-domestica"),

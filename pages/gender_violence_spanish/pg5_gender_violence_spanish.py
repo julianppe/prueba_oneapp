@@ -8,14 +8,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_gender_violence_spanish import ranger_slider_year_gender_violence_spanish, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/violencia-fisica-no-domestica',  # represents the url text
-                   name='Porcentaje de mujeres que han sufrido violencia física no domestica',  # name of page, commonly used as name of link
-                   title='Porcentaje de mujeres que han sufrido violencia física no domestica'  # epresents the title of browser's tab
+                   path='/justifica-golpear',  # represents the url text
+                   name='Porcentaje de la población que piensa que está justificado que los hombres golpeen a sus esposas',  # name of page, commonly used as name of link
+                   title='Porcentaje de la población que piensa que está justificado que los hombres golpeen a sus esposas'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/gender_violence_spanish/violencia_fisica_nodom.csv")
+df = pd.read_csv("datasets/gender_violence_spanish/justifica_golpear.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
