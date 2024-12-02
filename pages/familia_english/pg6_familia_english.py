@@ -9,19 +9,20 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/autonomy',  # represents the url text
-                   name='Porcentaje de adultos sin ingresos propios',  # name of page, commonly used as name of link
-                   title='Porcentaje de adultos sin ingresos propios'  # epresents the title of browser's tab
+                   path='/female-household-headship',  # represents the url text
+                   name='Jefatura de hogar femenina auto-reportada',  # name of page, commonly used as name of link
+                   title='Jefatura de hogar femenina auto-reportada'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/sin_ingresos.csv")
+df = pd.read_csv("datasets/familia_english/jefa_mujer.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
 df['ano'] = df['ano'].astype(int)
 df['valor'] = df['valor'].round(decimals = 2)
+
 
 options = list(df['pais'].unique())
 dropdown = generate_dropdown(options)
@@ -51,7 +52,6 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
-
 
 
 

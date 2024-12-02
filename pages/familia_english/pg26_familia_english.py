@@ -10,14 +10,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/without-contraception-access',  # represents the url text
-                   name='Percentage of women without access to contraception',  # name of page, commonly used as name of link
-                   title='Percentage of women without access to contraception'  # epresents the title of browser's tab
+                   path='/early-pregnancy',  # represents the url text
+                   name='Early pregnancy',  # name of page, commonly used as name of link
+                   title='Early pregnancy'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/anticoncepcion_sin_acceso.csv")
+df = pd.read_csv("datasets/familia_english/fecundidad_adolescente.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -52,6 +52,7 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
+
 
 
 

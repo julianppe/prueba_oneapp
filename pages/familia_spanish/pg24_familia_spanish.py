@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 dash.register_page(__name__,
-                   path='/metodo-anticonceptivos',  # represents the url text
-                   name='Porcentaje de mujeres que utilizan métodos anticonceptivos (cualquier método)',  # name of page, commonly used as name of link
-                   title='Porcentaje de mujeres que utilizan métodos anticonceptivos (cualquier método)'  # epresents the title of browser's tab
+                   path='/metodo-anticonceptivos-modernos',  # represents the url text
+                   name='Porcentaje de mujeres que utilizan métodos anticonceptivos modernos',  # name of page, commonly used as name of link
+                   title='Porcentaje de mujeres que utilizan métodos anticonceptivos modernos'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/anticoncepcion.csv")
+df = pd.read_csv("datasets/familia_spanish/anticoncepcion_moderna.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

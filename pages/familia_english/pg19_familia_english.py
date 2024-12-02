@@ -10,14 +10,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/hours-activities-leisure-family',  # represents the url text
-                   name='Weekly hours allocated to leisure activities',  # name of page, commonly used as name of link
-                   title='Weekly hours allocated to leisure activities'  # epresents the title of browser's tab
+                   path='/children-per-woman',  # represents the url text
+                   name='Number of children per woman',  # name of page, commonly used as name of link
+                   title='Number of children per woman'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/hs_ocio.csv")
+df = pd.read_csv("datasets/familia_english/numero_hijos_vivos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -38,7 +38,7 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women/men ratio', id='page19_familia_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page19_familia_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([

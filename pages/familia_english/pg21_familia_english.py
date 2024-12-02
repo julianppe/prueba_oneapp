@@ -10,14 +10,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/desired-fertility-rate',  # represents the url text
-                   name='Desired fertility rate',  # name of page, commonly used as name of link
-                   title='Desired fertility rate'  # epresents the title of browser's tab
+                   path='/gap-fertility-desired',  # represents the url text
+                   name='Gap between actual and desired fertility',  # name of page, commonly used as name of link
+                   title='Gap between actual and desired fertility'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/fecundidad_deseada.csv")
+df = pd.read_csv("datasets/familia_english/brecha_hijos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

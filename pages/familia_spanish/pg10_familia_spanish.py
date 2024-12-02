@@ -9,14 +9,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 
 dash.register_page(__name__,
-                   path='/tareas-domesticas-familia',  # represents the url text
-                   name='Participación en tareas domésticas',  # name of page, commonly used as name of link
-                   title='Participación en tareas domésticas'  # epresents the title of browser's tab
+                   path='/horas-tareas-domesticas-familia',  # represents the url text
+                   name='Horas semanales en tareas domésticas',  # name of page, commonly used as name of link
+                   title='Horas semanales en tareas domésticas'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/tareas_domesticas.csv")
+df = pd.read_csv("datasets/familia_spanish/hs_tareas_domesticas.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

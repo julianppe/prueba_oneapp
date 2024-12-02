@@ -8,14 +8,16 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 dash.register_page(__name__,
-                   path='/horas-actividades-cuidado-familia',  # represents the url text
-                   name='Horas semanales dedicadas a actividades de cuidado',  # name of page, commonly used as name of link
-                   title='Horas semanales dedicadas a actividades de cuidado'  # epresents the title of browser's tab
+                   path='/actividades-cuidado-ninos-familia',  # represents the url text
+                   name='Participación en actividades de cuidado de niños',  # name of page, commonly used as name of link
+                   title='Participación en actividades de cuidado de niños'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/hs_cuidado.csv")
+data='Bolivia'
+
+df = pd.read_csv("datasets/familia_spanish/cuidado_ninos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -24,6 +26,7 @@ df['valor'] = df['valor'].round(decimals = 2)
 
 options = list(df['pais'].unique())
 dropdown = generate_dropdown(options)
+
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
 list_comparacion_por_orden = list(df['comparacion_por_orden'].unique())

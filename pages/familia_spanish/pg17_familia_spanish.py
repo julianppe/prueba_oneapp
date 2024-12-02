@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 dash.register_page(__name__,
-                   path='/horas-actividades-apoyo-familia',  # represents the url text
-                   name='Horas semanales dedicadas a actividades de apoyo a otros hogares',  # name of page, commonly used as name of link
-                   title='Horas semanales dedicadas a actividades de apoyo a otros hogares'  # epresents the title of browser's tab
+                   path='/actividades-ocio-familia',  # represents the url text
+                   name='Participación en actividades de ocio',  # name of page, commonly used as name of link
+                   title='Participación en actividades de ocio'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/hs_ayuda_otros.csv")
+df = pd.read_csv("datasets/familia_spanish/ocio.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -50,6 +50,7 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
+
 
 
 

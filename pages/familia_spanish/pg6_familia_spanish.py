@@ -9,14 +9,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 
 dash.register_page(__name__,
-                   path='/autonomia',  # represents the url text
-                   name='Porcentaje de adultos sin ingresos propios',  # name of page, commonly used as name of link
-                   title='Porcentaje de adultos sin ingresos propios'  # epresents the title of browser's tab
+                   path='/jefatura-hogar-auto',  # represents the url text
+                   name='Jefatura de hogar femenina auto-reportada',  # name of page, commonly used as name of link
+                   title='Jefatura de hogar femenina auto-reportada'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/sin_ingresos.csv")
+df = pd.read_csv("datasets/familia_spanish/jefa_mujer.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

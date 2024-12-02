@@ -1,27 +1,27 @@
-
-
 import dash
 from dash import dcc, html, callback, Output, Input
 import plotly.express as px
 import dash_bootstrap_components as dbc
 import pandas as pd
-from dash import dcc, html, register_page, ctx, no_update
+from dash import dcc, html, register_page, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
+# To create meta tag for each page, define the title, image, and description.
 dash.register_page(__name__,
-                   path='/early-pregnancy-mics',  # represents the url text
-                   name='Early pregnancy',  # name of page, commonly used as name of link
-                   title='Early pregnancy'  # epresents the title of browser's tab
+                   path='/pareja-homosexual',  # '/' is home page and it represents the url
+                   name='Percentage of people with a same-sex partners',  # name of page, commonly used as name of link
+                   title='Percentage of people with a same-sex partners',  # title that appears on browser's tab
+                   #image='pg1.png',  # image in the assets folder
+                   #description='Histograms are the new bar charts.'
 )
 
-
-# page 1 data
-df = pd.read_csv("datasets/familia_english/fecundidad_adolescente_mics.csv")
+df = pd.read_csv("datasets/familia_english/pareja_homosexual.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
 df['ano'] = df['ano'].astype(int)
+
 df['valor'] = df['valor'].round(decimals = 2)
 
 options = list(df['pais'].unique())
@@ -32,13 +32,14 @@ list_comparacion_por = list(df['comparacion_por'].unique())
 list_comparacion_por_orden = list(df['comparacion_por_orden'].unique())
 list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_orden,list_comparacion_por))]
 
-layout = html.Div([
+layout = html.Div(
+    [
         dbc.Row([
         dbc.Col([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page35_familia_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, className="bg-light", persistence=True, persistence_type='memory', value='Total', id='page35_familia_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
@@ -50,9 +51,8 @@ layout = html.Div([
         dbc.Col([
             ranger_slider_year_familia_english,
         ], width=12),
-    ]),
+    ])
 ])
-
 
 
 
@@ -64,27 +64,33 @@ layout = html.Div([
     [Input('all-pages-ranger-slider-year-familia-english','value')]
 )
 
-
 def update_graphs(pais_v, comparacion_por_v, years_chosen):
-    dff = df.copy()
-    print(years_chosen)
-    dff=dff[(dff['ano']>=years_chosen[0])&(dff['ano']<=years_chosen[1])]
+    dff = df.copy() # Copiamos la base original.
+    # Slider range de años:
+    dff = dff[(dff['ano']>=years_chosen[0])&(dff['ano']<=years_chosen[1])]
+    # Dropdown de pais:
     if type(pais_v) == str:
         pais_v = [pais_v]
     dff = dff[dff['pais'].isin(pais_v)]
+    # Dropdown de comparación:
     dff = dff.query(f"comparacion_por == '{comparacion_por_v}'")
+    # Seleccion de indicador, detalle indicador y disclaimer.
     indicador = dff['indicador'].iat[0]
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
+    # Grafico con IC:
     if comparacion_por_v == 'Women - men gap':
-        fig_line = px.line(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar',
+        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
         symbol= 'desagregacion',
-        labels=dict(ano="Año", valor="", pais="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."], 
-        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        fig_line = px.line(dff, x='ano', y='valor', color='pais2',
+        line_dash= 'desagregacion', symbol= 'desagregacion',
+        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+    fig_line.update_traces(line=dict(width=2), 
+        marker={'size': 10})
     fig_line.update_layout(
-        xaxis=dict( 
+        xaxis=dict(
             showline=True,
             showgrid=True,
             showticklabels=True,

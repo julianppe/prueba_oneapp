@@ -9,20 +9,19 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/single-parent-percentage',  # represents the url text
-                   name='Porcentaje de hogares monoparentales',  # name of page, commonly used as name of link
-                   title='Porcentaje de hogares monoparentales'  # epresents the title of browser's tab
+                   path='/household-chores-family',  # represents the url text
+                   name='Participation in household chores',  # name of page, commonly used as name of link
+                   title='Participation in household chores'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/hogar_monoparental.csv")
+df = pd.read_csv("datasets/familia_english/tareas_domesticas.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
 df['ano'] = df['ano'].astype(int)
 df['valor'] = df['valor'].round(decimals = 2)
-
 
 options = list(df['pais'].unique())
 dropdown = generate_dropdown(options)
@@ -38,7 +37,7 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page9_familia_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women/men ratio', id='page9_familia_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
@@ -75,17 +74,14 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
     if comparacion_por_v == 'Women - men gap':
-        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
+        fig_line = px.line(dff, x='ano', y='valor', color='pais', error_y='valor_errorestandar',
         symbol= 'desagregacion',
-        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+        labels=dict(ano="Año", valor="", pais="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     else:
-        fig_line = px.line(dff, x='ano', y='valor', color='pais2',
-        line_dash= 'desagregacion', symbol= 'desagregacion',
-        labels=dict(ano="Year", valor="", pais2="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
-    fig_line.update_traces(line=dict(width=2), 
-        marker={'size': 10})
+        fig_line = px.bar(dff, x='ano', y='valor', color='pais', pattern_shape='desagregacion', barmode='group', pattern_shape_sequence=["", "x", "."], 
+        labels=dict(ano="Year", valor="", pais="Country", indicador="Indicator", desagregacion="Disaggregation")).update_xaxes(type='category', categoryorder='category ascending').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_layout(
-        xaxis=dict(
+        xaxis=dict( 
             showline=True,
             showgrid=True,
             showticklabels=True,

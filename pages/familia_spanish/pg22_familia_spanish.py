@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
 dash.register_page(__name__,
-                   path='/brecha-fecundidad-deseada',  # represents the url text
-                   name='Brecha entre fecundidad y fecundidad deseada',  # name of page, commonly used as name of link
-                   title='Brecha entre fecundidad y fecundidad deseada'  # epresents the title of browser's tab
+                   path='/brecha-fecundidad-deseada-conyuges',  # represents the url text
+                   name='Brecha de fecundidad deseada entre cónyuges',  # name of page, commonly used as name of link
+                   title='Brecha de fecundidad deseada entre cónyuges'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/brecha_hijos.csv")
+df = pd.read_csv("datasets/familia_spanish/brecha_hijos_cony.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)

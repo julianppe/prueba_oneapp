@@ -1,3 +1,5 @@
+
+
 import dash
 from dash import dcc, html, callback, Output, Input
 import plotly.express as px
@@ -8,14 +10,14 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/activities-support-family',  # represents the url text
-                   name='Participation in activities of support to other households',  # name of page, commonly used as name of link
-                   title='Participation in activities of support to other households'  # epresents the title of browser's tab
+                   path='/hours-activities-support-family',  # represents the url text
+                   name='Weekly hours allocated to provide support to other households',  # name of page, commonly used as name of link
+                   title='Weekly hours allocated to provide support to other households'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_english/ayuda_otros.csv")
+df = pd.read_csv("datasets/familia_english/hs_ayuda_otros.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -50,6 +52,7 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
+
 
 
 

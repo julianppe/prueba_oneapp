@@ -7,16 +7,15 @@ from elements.elements_familia_spanish import ranger_slider_year_familia_spanish
 from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_spanish import generate_dropdown
-
 dash.register_page(__name__,
-                   path='/horas-tareas-domesticas-familia',  # represents the url text
-                   name='Horas semanales en tareas domésticas',  # name of page, commonly used as name of link
-                   title='Horas semanales en tareas domésticas'  # epresents the title of browser's tab
+                   path='/actividades-cuidado-familia',  # represents the url text
+                   name='Participación en actividades de cuidado',  # name of page, commonly used as name of link
+                   title='Participación en actividades de cuidado'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/familia_spanish/hs_tareas_domesticas.csv")
+df = pd.read_csv("datasets/familia_spanish/cuidado.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -34,7 +33,7 @@ list_comparacion_por_ordenada = [x for _,x in sorted(zip(list_comparacion_por_or
 layout = html.Div([
         dbc.Row([
         dbc.Col([
-            dropdown,
+                        dropdown,
         ], width=6),
         dbc.Col([
             dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Ratio mujeres/hombres', id='page11_familia_spanish-comparacion_por_elect')
@@ -51,7 +50,6 @@ layout = html.Div([
         ], width=12),
     ]),
 ])
-
 
 
 
