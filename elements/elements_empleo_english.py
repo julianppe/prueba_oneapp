@@ -23,6 +23,7 @@ dropdown_empleo_english = dbc.Row([
             dbc.DropdownMenuItem("Average hourly wage", href="/empleo_english/average-hourly-wage"),
             dbc.DropdownMenuItem("Monthly labor income", href="/empleo_english/monthly-labor-income"),
             dbc.DropdownMenuItem("Gender wage gap (conditional)", href="/empleo_english/gender-wage-gap"),
+            dbc.DropdownMenuItem("Percentage of adults with zero income", href="/empleo_english/autonomy"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Skills of the adult population", header=True),
             dbc.DropdownMenuItem("Years of education", href="/empleo_english/years-education"),
@@ -98,12 +99,12 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022'}
+                2022:'2022',2023:'2023'}
 
 ranger_slider_year_empleo_english = dcc.RangeSlider(
         min=2000,
-        max=2022,
-        value=[2000,2022],
+        max=2023,
+        value=[2000,2023],
         marks=mark_values,
         step=1,
         persistence=True,

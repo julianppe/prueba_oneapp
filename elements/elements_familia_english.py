@@ -13,9 +13,6 @@ dropdown_familia_english = dbc.Row([
             dbc.DropdownMenuItem("Percentage of the spousal labor income contributed by each member", href="/familia_english/labor-income-percentage"),
             dbc.DropdownMenuItem("Percentage of individuals with equal or greater education than spouse who are inactive", href="/familia_english/more-education-percentage"),
             dbc.DropdownMenuItem(divider=True),
-            dbc.DropdownMenuItem("Autonomía", header=True),
-            dbc.DropdownMenuItem("Percentage of adults with zero income", href="/familia_english/autonomy"),
-            dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Household structure and headship", header=True),
             dbc.DropdownMenuItem("Self-reported female household headship", href="/familia_english/female-household-headship"),
             dbc.DropdownMenuItem("Economic female household headship", href="/familia_english/female-household-headship-econ"),
@@ -121,12 +118,12 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022'}
+                2022:'2022',2023:'2023'}
 
 ranger_slider_year_familia_english = dcc.RangeSlider(
         min=2000,
-        max=2022,
-        value=[2000,2022],
+        max=2023,
+        value=[2000,2023],
         marks=mark_values,
         step=1,
         persistence=True,

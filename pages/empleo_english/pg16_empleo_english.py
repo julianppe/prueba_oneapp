@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/unpaid-workers',  # represents the url text
-                   name='Unpaid workers',  # name of page, commonly used as name of link
-                   title='Unpaid workers'  # epresents the title of browser's tab
+                   path='/high-skilled-adults',  # represents the url text
+                   name='Percentage of high-skilled adults',  # name of page, commonly used as name of link
+                   title='Percentage of high-skilled adults'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/empleo_english/sin_salario.csv")
+df = pd.read_csv("datasets/empleo_english/calificacion_alta.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -43,12 +43,12 @@ layout = html.Div([
                         dropdown_pais_empleo_english,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page9_empleo_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Total', id='page16_empleo_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page9_empleo_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page16_empleo_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
@@ -60,11 +60,10 @@ layout = html.Div([
 
 
 
-
 @callback(
-    Output('page9_empleo_english-line', 'figure'),
+    Output('page16_empleo_english-line', 'figure'),
     Input('all-pages-dropdown-pais-empleo-english', 'value'),
-    Input('page9_empleo_english-comparacion_por_elect', 'value'),
+    Input('page16_empleo_english-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-empleo-english','value')]
 )
 
