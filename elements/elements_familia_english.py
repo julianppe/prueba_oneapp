@@ -51,8 +51,8 @@ dropdown_familia_english = dbc.Row([
             dbc.DropdownMenuItem("Early pregnancy", href="/familia_english/early-pregnancy-mics"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Diversity", header=True),
-            dbc.DropdownMenuItem("Percentage of people with a same-sex partners", href="/familia_english/pareja-homosexual"),
-            dbc.DropdownMenuItem("Percentage of the adult population that agrees with same-sex marriage", href="/familia_english/matrimonio-igualitario"),
+            dbc.DropdownMenuItem("Percentage of people with a same-sex partners", href="/familia_english/gay-couple"),
+            dbc.DropdownMenuItem("Percentage of the adult population that agrees with same-sex marriage", href="/familia_english/equal-marriage"),
 
         ],
         size="lg",

@@ -9,7 +9,7 @@ from elements.elements_familia_english import ranger_slider_year_familia_english
 
 # To create meta tag for each page, define the title, image, and description.
 dash.register_page(__name__,
-                   path='/pareja-homosexual',  # '/' is home page and it represents the url
+                   path='/gay-couple',  # '/' is home page and it represents the url
                    name='Percentage of people with a same-sex partners',  # name of page, commonly used as name of link
                    title='Percentage of people with a same-sex partners',  # title that appears on browser's tab
                    #image='pg1.png',  # image in the assets folder

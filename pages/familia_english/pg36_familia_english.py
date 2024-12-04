@@ -10,7 +10,7 @@ from dash_extensions.enrich import Output, Input, State, callback
 from elements.elements_familia_english import ranger_slider_year_familia_english, generate_dropdown
 
 dash.register_page(__name__,
-                   path='/matrimonio-igualitario',  # represents the url text
+                   path='/equal-marriage',  # represents the url text
                    name='Percentage of the adult population that agrees with same-sex marriage',  # name of page, commonly used as name of link
                    title='Percentage of the adult population that agrees with same-sex marriage'  # epresents the title of browser's tab
 )
