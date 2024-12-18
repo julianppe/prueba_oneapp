@@ -38,12 +38,12 @@ layout = html.Div([
             dropdown,
         ], width=6),
         dbc.Col([
-            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page35_familia_english-comparacion_por_elect')
+            dcc.Dropdown(options=[{'label': x, 'value': x} for x in list_comparacion_por_ordenada], multi=False, persistence=True, persistence_type='memory', value='Women', id='page36_familia_english-comparacion_por_elect')
         ], width=6),
     ]),
         dbc.Row([
         dbc.Col([
-            dcc.Graph(id='page35_familia_english-line', config={'displayModeBar':False})
+            dcc.Graph(id='page36_familia_english-line', config={'displayModeBar':False})
         ], width=12),
     ]),
         dbc.Row([
@@ -58,9 +58,9 @@ layout = html.Div([
 
 
 @callback(
-    Output('page35_familia_english-line', 'figure'),
+    Output('page36_familia_english-line', 'figure'),
     Input('all-pages-dropdown-pais-familia-english', 'value'),
-    Input('page35_familia_english-comparacion_por_elect', 'value'),
+    Input('page36_familia_english-comparacion_por_elect', 'value'),
     [Input('all-pages-ranger-slider-year-familia-english','value')]
 )
 
