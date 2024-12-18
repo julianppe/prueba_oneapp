@@ -61,34 +61,34 @@ app_empleo_spanish.layout = html.Div(
     )
 ], fluid=True),
 
-        # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("¡Atención!"),
-                dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # # Modal (pop-up)
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("¡Atención!"),
+        #         dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en español
-@app_empleo_spanish.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_empleo_spanish.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_empleo_english = DashProxy(
     __name__,
@@ -118,34 +118,34 @@ app_empleo_english.layout = html.Div(
     )
 ], fluid=True),
 
-        # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("Warning!"),
-                dbc.ModalBody("The data may present comparability issues."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # # Modal (pop-up)
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("Warning!"),
+        #         dbc.ModalBody("The data may present comparability issues."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_empleo_english.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_empleo_english.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_familia_spanish = DashProxy(
     __name__,
@@ -175,34 +175,34 @@ app_familia_spanish.layout = html.Div(
     )
 ], fluid=True),
 
-        # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("¡Atención!"),
-                dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # # Modal (pop-up)
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("¡Atención!"),
+        #         dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_familia_spanish.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_familia_spanish.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_familia_english = DashProxy(
     __name__,
@@ -232,34 +232,34 @@ app_familia_english.layout = html.Div(
     )
 ], fluid=True),
 
-        # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("Warning!"),
-                dbc.ModalBody("The data may present comparability issues."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # # Modal (pop-up)
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("Warning!"),
+        #         dbc.ModalBody("The data may present comparability issues."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_familia_english.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_familia_english.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_ninez_spanish = DashProxy(
     __name__,
@@ -290,33 +290,33 @@ app_ninez_spanish.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("¡Atención!"),
-                dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("¡Atención!"),
+        #         dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_ninez_spanish.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_ninez_spanish.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_ninez_english = DashProxy(
     __name__,
@@ -347,33 +347,33 @@ app_ninez_english.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("Warning!"),
-                dbc.ModalBody("The data may present comparability issues."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("Warning!"),
+        #         dbc.ModalBody("The data may present comparability issues."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_ninez_english.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_ninez_english.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_gender_roles_spanish = DashProxy(
     __name__,
@@ -404,33 +404,33 @@ app_gender_roles_spanish.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("¡Atención!"),
-                dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("¡Atención!"),
+        #         dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_gender_roles_spanish.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_gender_roles_spanish.callback(
+#     Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_gender_roles_english = DashProxy(
     __name__,
@@ -461,33 +461,33 @@ app_gender_roles_english.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("Warning!"),
-                dbc.ModalBody("The data may present comparability issues."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("Warning!"),
+        #         dbc.ModalBody("The data may present comparability issues."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_gender_roles_english.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_gender_roles_english.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_gender_violence_spanish = DashProxy(
     __name__,
@@ -518,33 +518,33 @@ app_gender_violence_spanish.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("¡Atención!"),
-                dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("¡Atención!"),
+        #         dbc.ModalBody("Los datos pueden presentar problemas de comparabilidad."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_gender_violence_spanish.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# @app_gender_violence_spanish.callback(
+#  Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 app_gender_violence_english = DashProxy(
     __name__,
@@ -575,34 +575,34 @@ app_gender_violence_english.layout = html.Div(
 ], fluid=True),
 
         # Modal (pop-up)
-        dbc.Modal(
-            [
-                dbc.ModalHeader("Warning!"),
-                dbc.ModalBody("The data may present comparability issues."),
-                dbc.ModalFooter(
-                    dbc.Button("Cerrar", id="close-popup", className="ml-auto")
-                ),
-            ],
-            id="popup-modal",
-            is_open=False,  # El modal se controla mediante el estado
-        ),
+        # dbc.Modal(
+        #     [
+        #         dbc.ModalHeader("Warning!"),
+        #         dbc.ModalBody("The data may present comparability issues."),
+        #         dbc.ModalFooter(
+        #             dbc.Button("Cerrar", id="close-popup", className="ml-auto")
+        #         ),
+        #     ],
+        #     id="popup-modal",
+        #     is_open=False,  # El modal se controla mediante el estado
+        # ),
     ]
 )
 
 # Callback para controlar el pop-up en inglés
-@app_gender_violence_english.callback(
-    Output("popup-modal", "is_open"),
-    Output("store-popup", "data"),
-    Input("close-popup", "n_clicks"),
-    State("store-popup", "data"),
-)
+# @app_gender_violence_english.callback(
+#    Output("popup-modal", "is_open"),
+#     Output("store-popup", "data"),
+#     Input("close-popup", "n_clicks"),
+#     State("store-popup", "data"),
+# )
 
-def toggle_popup_english(n_clicks, popup_shown):
-    if n_clicks:
-        return False, True  # Cierra el pop-up y marca que ya se cerró
-    if popup_shown:
-        return False, True  # Si ya se cerró una vez, no lo muestra más
-    return True, popup_shown  # Muestra el pop-up si nunca se cerró
+# def toggle_popup_english(n_clicks, popup_shown):
+#     if n_clicks:
+#         return False, True  # Cierra el pop-up y marca que ya se cerró
+#     if popup_shown:
+#         return False, True  # Si ya se cerró una vez, no lo muestra más
+#     return True, popup_shown  # Muestra el pop-up si nunca se cerró
 
 
 if __name__ == "__main__":
