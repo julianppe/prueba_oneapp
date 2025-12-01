@@ -18,6 +18,8 @@ dropdown_familia_english = dbc.Row([
             dbc.DropdownMenuItem("Economic female household headship", href="/familia_english/female-household-headship-econ"),
             dbc.DropdownMenuItem("Percentage of single-parent households", href="/familia_english/single-parent-percentage"),
             dbc.DropdownMenuItem("Early marriage", href="/familia_english/early-marriage"),
+            dbc.DropdownMenuItem("Percentage of adults in a couple", href="/familia_english/partner-adult"),
+            dbc.DropdownMenuItem("Percentage of adults with children in the household", href="/familia_english/child-adult"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Time use", header=True),
             dbc.DropdownMenuItem("Participation in household chores", href="/familia_english/household-chores-family"),
@@ -53,7 +55,7 @@ dropdown_familia_english = dbc.Row([
             dbc.DropdownMenuItem("Diversity", header=True),
             dbc.DropdownMenuItem("Percentage of people with a same-sex partners", href="/familia_english/gay-couple"),
             dbc.DropdownMenuItem("Percentage of the adult population that agrees with same-sex marriage", href="/familia_english/equal-marriage"),
-
+            dbc.DropdownMenuItem("Adult population who would not like to have homosexual neighbors", href="/familia_english/no-neighbors-homosex"),
         ],
         size="lg",
         nav=True,
@@ -123,12 +125,12 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022',2023:'2023'}
+                2022:'2022',2023:'2023',2024:'2024'}
 
 ranger_slider_year_familia_english = dcc.RangeSlider(
         min=2000,
-        max=2023,
-        value=[2000,2023],
+        max=2024,
+        value=[2000,2024],
         marks=mark_values,
         step=1,
         persistence=True,

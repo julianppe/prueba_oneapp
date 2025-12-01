@@ -19,6 +19,8 @@ dropdown_familia_spanish = dbc.Row([
             dbc.DropdownMenuItem("Jefatura de hogar femenina según definición económica", href="/familia_spanish/jefatura-hogar-econ"),
             dbc.DropdownMenuItem("Porcentaje de hogares monoparentales", href="/familia_spanish/porcen-hog-mono"),
             dbc.DropdownMenuItem("Matrimonio precoz", href="/familia_spanish/matrimonio-precoz"),
+            dbc.DropdownMenuItem("Porcentaje de adultos en pareja", href="/familia_spanish/pareja-adultos"),
+            dbc.DropdownMenuItem("Porcentaje de personas con hijos en el hogar", href="/familia_spanish/hijos-adultos"),
             dbc.DropdownMenuItem(divider=True),
             dbc.DropdownMenuItem("Uso del tiempo", header=True),
             dbc.DropdownMenuItem("Participación en tareas domésticas", href="/familia_spanish/tareas-domesticas-familia"),
@@ -54,6 +56,7 @@ dropdown_familia_spanish = dbc.Row([
             dbc.DropdownMenuItem("Diversidad", header=True),
             dbc.DropdownMenuItem("Porcentaje de personas con pareja del mismo sexo", href="/familia_spanish/pareja-homosexual"),
             dbc.DropdownMenuItem("Población adulta de acuerdo con el matrimonio entre personas del mismo sexo", href="/familia_spanish/matrimonio-igualitario"),
+            dbc.DropdownMenuItem("Población adulta que no le gustaría tener como vecinos a personas homosexuales", href="/familia_spanish/no-vecinos-homosex"),
         ],
         size="lg",
         nav=True,
@@ -124,12 +127,12 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022',2023:'2023'}
+                2022:'2022',2023:'2023',2024:'2024'}
 
 ranger_slider_year_familia_spanish = dcc.RangeSlider(
         min=2000,
-        max=2023,
-        value=[2000,2023],
+        max=2024,
+        value=[2000,2024],
         marks=mark_values,
         step=1,
         persistence=True,

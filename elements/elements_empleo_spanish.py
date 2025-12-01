@@ -12,6 +12,7 @@ dropdown_empleo_spanish = dbc.Row([
             dbc.DropdownMenuItem("Tasa de empleo", href="/empleo_spanish/tasa-de-empleo"),
             dbc.DropdownMenuItem("Tasa de desempleo", href="/empleo_spanish/tasa-de-desempleo"),
             dbc.DropdownMenuItem("Tasa de informalidad laboral", href="/empleo_spanish/tasa-de-informalidad-laboral"),
+            dbc.DropdownMenuItem("Horas semanales en trabajo remunerado (solo ocupados)", href="/empleo_spanish/horas-de-trabajo-ocup"),
             dbc.DropdownMenuItem("Horas semanales en trabajo remunerado", href="/empleo_spanish/horas-de-trabajo"),
             dbc.DropdownMenuItem("Empleadores", href="/empleo_spanish/empleador"),
             dbc.DropdownMenuItem("Asalariados", href="/empleo_spanish/asalariados"),

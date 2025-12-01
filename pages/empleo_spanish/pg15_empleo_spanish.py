@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/anios-educacion',  # represents the url text
-                   name='Años de educación',  # name of page, commonly used as name of link
-                   title='Años de educación'  # epresents the title of browser's tab
+                   path='/sin-ingresos',  # represents the url text
+                   name='Sin ingresos',  # name of page, commonly used as name of link
+                   title='Sin ingresos'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/empleo_spanish//anios_educ.csv")
+df = pd.read_csv("datasets/empleo_spanish/sin_ingresos.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -30,7 +30,7 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022',2023:'2023'}
+                2022:'2022',2023:'2023',2024:'2024'}
 
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
@@ -58,13 +58,6 @@ layout = html.Div([
     ]),
 ])
 
-
-# @callback(
-#     Output('page15_empleo_spanish-pais_elect', "value"),
-#     Output("store_empleo_spanish", "data"),
-#     Input('page15_empleo_spanish-pais_elect', "value"),
-#     State("store_empleo_spanish", "data"),
-# )
 
 
 @callback(

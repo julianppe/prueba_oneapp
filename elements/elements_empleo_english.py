@@ -12,6 +12,7 @@ dropdown_empleo_english = dbc.Row([
             dbc.DropdownMenuItem("Employment rate", href="/empleo_english/employment-rate"),
             dbc.DropdownMenuItem("Unemployment rate", href="/empleo_english/unemployment-rate"),
             dbc.DropdownMenuItem("Labor informality rate", href="/empleo_english/informality-rate"),
+            dbc.DropdownMenuItem("Weekly hours worked (only employed)", href="/empleo_english/weekly-hours-worked-employed"),
             dbc.DropdownMenuItem("Weekly hours worked", href="/empleo_english/weekly-hours-worked"),
             dbc.DropdownMenuItem("Employers", href="/empleo_english/employers"),
             dbc.DropdownMenuItem("Wage earners", href="/empleo_english/wage-earners"),
@@ -99,12 +100,12 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022',2023:'2023'}
+                2022:'2022',2023:'2023',2024:'2024'}
 
 ranger_slider_year_empleo_english = dcc.RangeSlider(
         min=2000,
-        max=2023,
-        value=[2000,2023],
+        max=2024,
+        value=[2000,2024],
         marks=mark_values,
         step=1,
         persistence=True,

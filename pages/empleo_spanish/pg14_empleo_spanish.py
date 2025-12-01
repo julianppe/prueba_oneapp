@@ -8,14 +8,14 @@ from dash import dcc, html, register_page, ctx, no_update
 from dash_extensions.enrich import Output, Input, State, callback
 
 dash.register_page(__name__,
-                   path='/sin-ingresos',  # represents the url text
-                   name='Sin ingresos',  # name of page, commonly used as name of link
-                   title='Sin ingresos'  # epresents the title of browser's tab
+                   path='/brecha-salarial-genero',  # represents the url text
+                   name='Brecha salarial condicionada',  # name of page, commonly used as name of link
+                   title='Brecha salarial condicionada'  # epresents the title of browser's tab
 )
 
 
 # page 1 data
-df = pd.read_csv("datasets/empleo_spanish/sin_ingresos.csv")
+df = pd.read_csv("datasets/empleo_spanish/brecha_salarial_genero.csv")
 df['indicador'] = df['indicador'].astype(str)
 df['pais'] = df['pais'].astype(str)
 df['comparacion_por'] = df['comparacion_por'].astype(str)
@@ -30,7 +30,7 @@ mark_values = {2000:'2000',2001:'2001',2002:'2002',
                 2013:'2013',2014:'2014',2015:'2015',
                 2016:'2016',2017:'2017',2018:'2018',
                 2019:'2019',2020:'2020',2021:'2021',
-                2022:'2022',2023:'2023'}
+                2022:'2022',2023:'2023',2024:'2024'}
 
 # Para ordenar dropdown:
 list_comparacion_por = list(df['comparacion_por'].unique())
@@ -59,6 +59,13 @@ layout = html.Div([
 ])
 
 
+# @callback(
+#     Output('page14_empleo_spanish-pais_elect', "value"),
+#     Output("store_empleo_spanish", "data"),
+#     Input('page14_empleo_spanish-pais_elect', "value"),
+#     State("store_empleo_spanish", "data"),
+# )
+
 
 @callback(
     Output('page14_empleo_spanish-line', 'figure'),
@@ -79,14 +86,9 @@ def update_graphs(pais_v, comparacion_por_v, years_chosen):
     indicador = dff['indicador'].iat[0]
     detalle_indicador_v = dff['detalle_indicador'].iat[0]
     disclaimer = dff['disclaimer'].iat[0]
-    if comparacion_por_v == 'Brecha mujeres - hombres':
-        fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
-        symbol= 'desagregacion',
-        labels=dict(ano="Año", valor="", pais2="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
-    else:
-        fig_line = px.line(dff, x='ano', y='valor', color='pais2',
-        line_dash= 'desagregacion', symbol= 'desagregacion',
-        labels=dict(ano="Año", valor="", pais2="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
+    fig_line = px.line(dff, x='ano', y='valor', color='pais2', error_y='valor_errorestandar',
+    line_dash= 'desagregacion', symbol= 'desagregacion',
+    labels=dict(ano="Año", valor="", pais2="País", indicador="Indicador", desagregacion="Desagregación")).update_xaxes(type='category').update_layout(margin=dict(l=10, r=10, t=10, b=10))
     fig_line.update_traces(line=dict(width=2), 
         marker={'size': 10})
     fig_line.update_layout(
